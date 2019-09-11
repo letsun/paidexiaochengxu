@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/siji/inputLicensePlate/inputLicensePlate",
     "pages/index/index",
     "pages/logs/logs"
   ],
