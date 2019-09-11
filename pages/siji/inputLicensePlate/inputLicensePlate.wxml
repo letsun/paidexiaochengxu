@@ -1,16 +1,17 @@
 <!--pages/siji/inputLicensePlate/inputLicensePlate.wxml-->
 <view class="container" style="background-image: url(../../images/1_1.png);background-repeat: no-repeat;background-size: cover;">
   <view class="plate-wrap">
-      <view classs="plate-tip">请输入车牌号</view>
+      <view class="plate-tip">请输入车牌号码：</view>
       <view class="plate-list">
-        <input class="plate-num"></input>
-        <input class="plate-num"></input>
-        <input class="plate-num"></input>
-        <input class="plate-num"></input>
-        <input class="plate-num"></input>
-        <input class="plate-num"></input>
-        <input class="plate-num"></input>
-        <input class="plate-num"></input>
+        <input class="plate-num" maxlength="1"></input>
+        <input class="plate-num" maxlength="1"></input>
+        <input class="plate-num" maxlength="1"></input>
+        <input class="plate-num" maxlength="1"></input>
+        <input class="plate-num" maxlength="1"></input>
+        <input class="plate-num" maxlength="1"></input>
+        <input class="plate-num" maxlength="1"></input>
+        <input class="plate-num" maxlength="1"></input>
       </view>
+      <view class="begin-rank">开始排队</view>
   </view>
 </view>
