@@ -1,2 +1,16 @@
 <!--pages/siji/inputLicensePlate/inputLicensePlate.wxml-->
-<view>你是一只猪</view>
+<view class="container" style="background-image: url(../../images/1_1.png);background-repeat: no-repeat;background-size: cover;">
+  <view class="plate-wrap">
+      <view classs="plate-tip">请输入车牌号</view>
+      <view class="plate-list">
+        <input class="plate-num"></input>
+        <input class="plate-num"></input>
+        <input class="plate-num"></input>
+        <input class="plate-num"></input>
+        <input class="plate-num"></input>
+        <input class="plate-num"></input>
+        <input class="plate-num"></input>
+        <input class="plate-num"></input>
+      </view>
+  </view>
+</view>

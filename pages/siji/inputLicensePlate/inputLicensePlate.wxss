@@ -1,1 +1,20 @@
 /* pages/siji/inputLicensePlate/inputLicensePlate.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.plate-wrap{
+  width: 670rpx;
+  margin: 0 auto;
+}
+.plate-wrap .plate-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; 
+}
+.plate-wrap .plate-list .plate-num{
+  width: 70rpx;
+  height: 70rpx;
+  background-color: #fff;
+  border-radius: 5px;
+}
