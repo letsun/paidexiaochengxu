@@ -1,0 +1,73 @@
+<!--pages/siji/currentQueueDetailApply/currentQueueDetailApply.wxml-->
+<!-- 当前排队详情(关联申请） -->
+
+<view class="container">
+    <view class="relation-form-wrap">
+      <view class="relation-title">关联运单</view>
+      <view class="relation-form">
+        <view class="form-item">
+          <text class="form-title">出库单号</text>
+          <text class="form-content">OD201907230001</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">货主名称</text>
+          <text class="form-content">华糖实业股份有限公司</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">联系人</text>
+          <text class="form-content">李文斌</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">联系电话</text>
+          <text class="form-content">18918845699</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">出库数量</text>
+          <text class="form-content">600</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">出库重量</text>
+          <text class="form-content">30.00吨</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">运输费用</text>
+          <text class="form-content">500.00吨</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">调拨集团</text>
+          <text class="form-content">诺金供应链集团</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">调拨仓库</text>
+          <text class="form-content">诺金仓库</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">承运单位</text>
+          <text class="form-content">诺金供应链股份有限公司</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">抵运站点</text>
+          <text class="form-content">安阳</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">发运方式</text>
+          <text class="form-content">公路</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">运往地址</text>
+          <text class="form-content">广东省江门市新会区双水镇桥123号</text>
+        </view>
+        <view class="form-item">
+          <text class="form-title">出库明细</text>
+          <text class="form-content"><text class="more">点击查看</text> <text class="more-icon">></text></text>
+        </view>
+
+      </view>
+    </view>
+    
+    <view class="confirm-wrap">
+        <button class="confirm-btn confirm-entrucking" bindtap="showModal">确认装车</button>
+        <button class="confirm-btn confirm-service">确认送达</button>
+    </view>
+</view>
+

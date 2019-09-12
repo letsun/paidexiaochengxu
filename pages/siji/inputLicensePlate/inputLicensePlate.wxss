@@ -7,6 +7,7 @@ page{
   width: 670rpx;
   margin: 0 auto;
 }
+
 .plate-wrap .plate-tip{
   line-height: 48px;
   color: #fff;

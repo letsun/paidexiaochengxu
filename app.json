@@ -1,5 +1,12 @@
 {
   "pages": [
+    "pages/siji/currentQueueDetailForm/currentQueueDetailForm",
+    "pages/siji/currentQueueDetailApply/currentQueueDetailApply",
+    "pages/siji/historyEnterDetail/historyEnterDetail",
+    "pages/siji/historyOutDetail/historyOutDetail",
+    "pages/siji/queueRecord/queueRecord",
+    "pages/siji/outhousing/outhousing",
+    "pages/siji/warehousing/warehousing",
     "pages/siji/inputLicensePlate/inputLicensePlate",
     "pages/index/index",
     "pages/logs/logs"
