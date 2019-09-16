@@ -1,0 +1,84 @@
+<!--pages/menwei/situation/situation.wxml-->
+<view class="container">
+
+  <view class="header">
+    <view class="header-item" bindtap="btnTab" data-index='{{index}}' wx:for="{{headerarray}}" wx:key="xxx">
+      {{item}}
+      <view class="{{index==tabindex?'header-item-span':''}}"></view>
+    </view>
+
+
+  </view>
+
+  <view class="content">
+    <view class="content-item" style="background:url(../../images/1_7.png) no-repeat;background-size: 100% 100%; ">
+
+
+      <!-- 排队序号 -->
+      <view class="content-item-title">
+
+        <view class="content-item-title-left">
+          排队序号:
+        </view>
+
+        <view class="content-item-title-right">
+          2019-09-07 11:30:00
+        </view>
+
+
+      </view>
+
+
+      <!-- 等待进场排队序号 -->
+
+      <view class="content-item-con" wx:if="{{tabindex!=2}}">
+
+        <view class="content-item-con-left">
+
+          A01
+        </view>
+
+        <view class="content-item-con-right">
+
+          <view class="content-item-con-right-top" bindtap="clfx">
+            车辆放行
+          </view>
+
+          <view class="content-item-con-right-bottom">
+            仓库已放行,待进场
+          </view>
+        </view>
+      </view>
+
+      <!-- 排队等候 -->
+      <view class="content-item-conb" wx:if="{{tabindex==2}}">
+        A01
+      </view>
+
+      <!-- 底部车牌信息 -->
+      <view class="content-item-bottom">
+
+        <view class="content-item-bottom-left">
+          <view>车牌号码:
+            <span>粤B466S1</span>
+          </view>
+          <view>司机姓名:
+            <span>李亚伟</span>
+          </view>
+        </view>
+
+        <view class="content-item-bottom-right">
+          <view>装车地点:
+            <span>1号库房</span>
+          </view>
+          <view>联系电话:
+            <span>18961889066</span>
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+
+</view>

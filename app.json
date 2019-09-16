@@ -1,5 +1,11 @@
 {
   "pages": [
+    
+    "pages/menwei/login/login",
+    "pages/menwei/scancode/scancode",
+    "pages/menwei/situation/situation",
+    "pages/menwei/record/record",
+
     "pages/siji/inputLicensePlate/inputLicensePlate",
     "pages/index/index",
     "pages/logs/logs"
@@ -7,8 +13,8 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "华糖实业",
     "navigationBarTextStyle": "black"
+
   },
   "sitemapLocation": "sitemap.json"
 }

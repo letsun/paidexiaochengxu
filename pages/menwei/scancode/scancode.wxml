@@ -1,0 +1,62 @@
+<!--pages/menwei/scancode/scancode.wxml-->
+<view class="container" style="background:url(../../images/1_9.png) no-repeat 100% 100%;">
+
+  <view class="containera">
+    <!-- 中间二维码内容 -->
+    <view class="content">
+
+      <view class="content-header">
+
+        <view class="content-hedear-left">
+          排队动态二维码
+        </view>
+
+        <picker class="content-header-right" value="{{index}}" range="{{array}}">
+          A园区
+        </picker>
+      </view>
+
+      <!-- 二维码 -->
+      <view class="content-qrcode">
+
+        <image class="content-qrcode-img"></image>
+
+      </view>
+
+      <!-- 点击刷新二维码 -->
+      <view class="content-refresh">
+
+        <view class="content-refresh-image">
+          <image src="../../images/1_6.png"></image>
+        </view>
+
+        <view class="content-refresh-text">排队码自动
+          <text>刷新</text>
+        </view>
+      </view>
+
+
+      <!-- 点击切换出库入库二维码-->
+
+      <view class="content-bottom">
+        <view class="{{index==tabindex?'yxz':'wxz'}}" bindtap="bindTab" data-index="{{index}}" wx:for="{{tabarray}}" wx:key="xxx">
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 查看排队情况 -->
+    <view class="situation" bindtap="situation">
+      查看排队情况
+    </view>
+
+    <view class="record" bindtap="record">
+      查看排队纪录
+    </view>
+  </view>
+
+
+
+
+</view>
