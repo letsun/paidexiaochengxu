@@ -1,0 +1,60 @@
+<!--pages/siji/queueRecord/queueRecord.wxml-->
+
+<view class="container">
+  <view class='topTabSwiper'>
+    <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>出库记录</view>
+    <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>入库记录</view>
+  </view>
+  <swiper current="{{currentData}}" class='swiper' style="height:600px;" duration="300" bindchange="bindchange">
+    <swiper-item>
+      <view class="queue-list" wx:for="{{4}}" wx:key="">
+
+        <view class="queue-row">
+          <view class="queue-row-wrap">
+            排队序号：
+            <text class="queue-row-content">A03</text>
+          </view>
+          <view class="queue-row-wrap">
+            <text class="queue-row-content">2019-09-09 11:30:12</text>
+          </view>
+        </view>
+
+        <view class="queue-row">
+          <view class="queue-row-wrap">
+             排队类型：
+            <text class="queue-row-content">出库排队</text>
+          </view>
+          <view class="queue-row-wrap">
+            关联单据数量：
+            <text class="queue-row-content">1张</text>
+          </view>
+        </view>
+
+      </view>
+    </swiper-item>
+
+    <swiper-item>
+      <view class="queue-list" wx:for="{{2}}" wx:key="">
+
+        <view class="queue-row">
+          <view class="queue-row-wrap">
+            排队序号：
+            <text class="queue-row-content">A03</text>
+          </view>
+          <view class="queue-row-wrap">
+            <text class="queue-row-content">2019-09-09 11:30:12</text>
+          </view>
+        </view>
+
+        <view class="queue-row">
+          <view class="queue-row-wrap">
+             排队类型：
+            <text class="queue-row-content">出库排队</text>
+          </view>
+         
+        </view>
+
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

@@ -1,0 +1,72 @@
+/* pages/siji/historyOutDetail/historyOutDetail.wxss */
+.relation-form-wrap{
+  width: 637rpx;
+  margin: 0 auto;
+}
+.relation-title{
+  color: #333;
+  padding-left: 22rpx;
+  border-left: 5px solid #ff8402;
+}
+.relation-form{
+  margin-top: 36rpx;
+}
+.form-item{
+  width: 100%;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-top: 1px solid #ededed;
+  border-right: 1px solid #ededed;
+}
+.form-item:last-child{
+  border-bottom: 1px solid #ededed;
+}
+.form-title{
+  display: inline-block;
+  width: 200rpx;
+  text-align: center;
+  font-size: 26rpx;
+  background-color: #ededed;
+  color: #999;
+}
+.form-content{
+  display: inline-block;
+  width: 410rpx;
+  text-align: left;
+  font-size: 26rpx;
+  color: #333;
+  padding-left: 26rpx;
+}
+.more{
+  color: #ff8402
+}
+.more-icon{
+  float: right;
+  font-size: 34rpx;
+  margin-right: 25rpx;
+}
+
+.confirm-wrap{
+  width: 100%;
+  height: 98rpx;
+  box-shadow: 0 -10rpx 10rpx #f3f3f3;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.confirm-btn{
+  width: 350rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  background-color: #ccc;
+  border-radius: 35rpx;
+}

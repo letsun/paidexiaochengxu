@@ -1,0 +1,33 @@
+<!--pages/siji/outhousing/outhousing.wxml-->
+
+<view class="container" style="background-image: url(../../images/1_1.png);background-repeat: no-repeat;background-size: cover;">
+  <view class="warehousing-wrap">
+    <view class="warehousing-title">出库排队单</view>
+    <view class="warehousing-content">
+      <view class="current-rank list-title">当前排队序号：</view>
+      <view class="current-no">B04</view>
+      <view class="current-rank-park">
+        <text class="list-title">当前排队园区：</text>A园区</view>
+      <view class="join-time">
+        <text class="list-title">参与排队时间：</text>2019-09-09 10:30:05</view>
+      <view class="estim-time">
+        <text class="list-title">预计等候时长：</text>30分钟</view>
+      <view class="current-car">
+        <text class="list-title">当前等候车辆：</text>3辆</view>
+    </view>
+
+    <view class="unload">
+      <text class="list-title">前往卸车地点：</text><text class="storehouse">1号库房</text></view>
+  </view>
+  <view class="history-record">历史排队记录</view>
+  <view class="history-record relation-list">关联单据详情</view>
+
+  <!-- <view class="cover" wx:if="{{isShow}}">
+    <view class="tip-wrap">
+      <view class="pass-tip">放行提示</view>
+      <text class="contact">仓管已放行，\n请及时联系门卫放行</text>
+      <view class="know" bindtap="closeCover">我知道了</view>
+    </view>
+    
+  </view> -->
+</view>
