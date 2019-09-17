@@ -37,7 +37,7 @@ page {
   text-align: center;
   margin: auto;
   bottom: -10rpx;
-
+  transform: 2s;
 }
 
 

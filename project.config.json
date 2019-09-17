@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 10,
 			"list": [
 				{
 					"id": 0,
@@ -67,6 +67,55 @@
 					"id": -1,
 					"name": "排队纪录",
 					"pathName": "pages/menwei/record/record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/siji/currentQueueDetailForm/currentQueueDetailForm",
+					"pathName": "pages/siji/currentQueueDetailForm/currentQueueDetailForm",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/siji/currentQueueDetailApply/currentQueueDetailApply",
+					"pathName": "pages/siji/currentQueueDetailApply/currentQueueDetailApply",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/siji/historyEnterDetail/historyEnterDetail",
+					"pathName": "pages/siji/historyEnterDetail/historyEnterDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/siji/historyOutDetail/historyOutDetail",
+					"pathName": "pages/siji/historyOutDetail/historyOutDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/siji/queueRecord/queueRecord",
+					"pathName": "pages/siji/queueRecord/queueRecord",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/siji/warehousing/warehousing",
+					"pathName": "pages/siji/warehousing/warehousing",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/siji/inputLicensePlate/inputLicensePlate",
+					"pathName": "pages/siji/inputLicensePlate/inputLicensePlate",
 					"query": "",
 					"scene": null
 				}
