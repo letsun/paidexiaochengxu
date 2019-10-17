@@ -50,7 +50,8 @@ page {
   width: 700rpx;
 
   padding:50rpx 0rpx 30rpx 0rpx;
-  
+  background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/paide/1_7.png) no-repeat;
+  background-size: 100% 100%;
 }
 
 .content-item-title {

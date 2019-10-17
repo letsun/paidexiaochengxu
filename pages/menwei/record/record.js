@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    data:"2019-10-17"
   },
 
   /**
@@ -69,9 +69,10 @@ Page({
     /**
    * 获取时间
    */
-  bindDateChange: function (e) {
+  bindDateChange(e) {
+    console.log(e)
     this.setData({
-      send_time: e.detail.value
+      data: e.detail.value
     })
   }, 
 })

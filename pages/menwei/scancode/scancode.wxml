@@ -1,5 +1,5 @@
 <!--pages/menwei/scancode/scancode.wxml-->
-<view class="container" style="background:url(../../images/1_9.png) no-repeat 100% 100%;">
+<view class="container">
 
   <view class="containera">
     <!-- 中间二维码内容 -->
@@ -11,20 +11,20 @@
           排队动态二维码
         </view>
 
-        <picker class="content-header-right" value="{{index}}" range="{{array}}">
-          A园区
+        <picker class="content-header-right"  range="{{array}}" bindchange="bindDateChange">
+          {{array[index]}}
         </picker>
       </view>
 
       <!-- 二维码 -->
       <view class="content-qrcode">
 
-        <image class="content-qrcode-img"></image>
+        <canvas class='canvas' canvas-id='canvas' style="width: 100%;height: 100%" bindlongtap="save" ></canvas>
 
       </view>
 
       <!-- 点击刷新二维码 -->
-      <view class="content-refresh">
+      <view class="content-refresh" bindtap="refresh">
 
         <view class="content-refresh-image">
           <image src="../../images/1_6.png"></image>

@@ -1,4 +1,8 @@
 // pages/menwei/scancode/scancode.js
+const QRCode = require('../../../utils/qrcode.js');
+
+const api = require('../../../utils/api.js')
+const fun = require('../../../utils/function.js')
 Page({
 
   /**
@@ -8,6 +12,7 @@ Page({
     array: ["A园区", "B园区", "C园区"],
 
     tabarray: ["出库排队", "入库排队"],
+    index: 0,
 
     tabindex: 0 //默认选中第一个
   },
@@ -23,14 +28,21 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    qrcode: new QRCode('canvas', {
+      text: "https://www.baidu.com",
+      width: 240,
+      height: 240,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H,
+    })   
   },
 
   /**
@@ -69,7 +81,6 @@ Page({
   },
 
   bindTab(e){
-
     // 修改tab选中状态
     var that = this;
     that.setData({
@@ -88,6 +99,20 @@ Page({
   record() {
     wx.navigateTo({
       url: '../../menwei/record/record',
+    })
+  },
+
+  //点击刷新二维码
+  refresh(){ 
+    var that = this;
+    that.onShow()
+  },
+
+  //点击选择园区
+  bindDateChange(e) {
+    var that = this;
+    that.setData({
+      index: e.detail.value,
     })
   }
 })

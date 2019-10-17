@@ -1,4 +1,8 @@
 // pages/menwei/index/index.js
+const app = getApp() 
+const api = require('../../../utils/api.js')
+const fun = require('../../../utils/function.js')
+
 Page({
 
   /**
@@ -19,7 +23,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    fun.getopenid(res => {
+      this.setData({
+        openid: res
+      })
+    })
   },
 
   /**
@@ -66,6 +74,34 @@ Page({
 
   login(e){
 
+    let username = e.detail.value.username,
+        password = e.detail.value.password
+
+
+    var pattern = /^1[12345789]\d{9}$/;
+    if(username == ''|| username == null){
+
+      fun.showToast("账号不能为空",'none')
+
+      return false;
+    }
+
+    if (!pattern.test(username)){
+
+      fun.showToast("请输入正确的账号", 'none')
+
+      return false;
+    }
+
+
+    if (password == '' || password == null) {
+
+      fun.showToast("请输入密码", 'none')
+
+      return false;
+    }
+
+    
     wx.redirectTo({
       url: '../../menwei/scancode/scancode',
     })

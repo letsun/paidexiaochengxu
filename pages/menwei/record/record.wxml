@@ -17,7 +17,7 @@
   <!-- 内容 -->
   <view class="content">
     <view class="content-title">
-      2019年9月5日
+     {{data}}
     </view>
 
     <view class="content-con">

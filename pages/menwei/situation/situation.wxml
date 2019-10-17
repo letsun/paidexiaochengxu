@@ -11,7 +11,7 @@
   </view>
 
   <view class="content">
-    <view class="content-item" style="background:url(../../images/1_7.png) no-repeat;background-size: 100% 100%; ">
+    <view class="content-item" style=" ">
 
 
       <!-- 排队序号 -->

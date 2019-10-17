@@ -1,4 +1,6 @@
 // pages/menwei/situation/situation.js
+const api = require('../../../utils/api.js')
+const fun = require('../../../utils/function.js')
 Page({
 
   /**
@@ -76,10 +78,12 @@ Page({
 
   // 车辆放行
   clfx(){
-    wx.showModal({
-      title: '放行提示',
-      content: '即将向司机发送进场通知,确认此操作？',
-      confirmColor:'#fd7d00'
+
+    fun.showModal('放行提示','即将向司机发送进场通知,确认此操作？',(confirm)=>{
+      console.log('点击确认')
+    }, (cancel)=>{
+      console.log('点击取消')
     })
+   
   }
 })
