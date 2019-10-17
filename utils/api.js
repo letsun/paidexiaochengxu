@@ -7,7 +7,8 @@ var api = {
   getOpenId: ip + '/wap/wechat/getOpenId',  //公用获取openid
 
   siji: {
-
+    submitPlateNo: ip + '/wap/driver/submitPlateNo',  //录入车牌
+    getQuequeRecord: ip + '/wap/driver/getQuequeRecord',  //获取出库入库排队单 
   },
 
   menwei: {

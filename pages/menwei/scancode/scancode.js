@@ -1,6 +1,5 @@
 // pages/menwei/scancode/scancode.js
 const QRCode = require('../../../utils/qrcode.js');
-
 const api = require('../../../utils/api.js')
 const fun = require('../../../utils/function.js')
 Page({

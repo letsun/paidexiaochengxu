@@ -1,6 +1,6 @@
 /*
- *ajax请求方法
- * type   类型
+ * ajax请求方法
+ * type   请求类型
  * url   接口url
  * data 数据
  * success  成功回调
@@ -43,7 +43,7 @@ function getData(url, type, data, success) {
  * cancel:点击取消的回调函数
  */
 
-function showModal(title,content, confirm, cancel) {
+function showModal(title, content, confirm, cancel) {
   wx.showModal({
     title: title,
     content: content,
@@ -83,6 +83,26 @@ function showToast(title, icon) {
 
 /***
  * 
+ * 提示框
+ * title: 提示文字
+ * icon:提示图标
+ * success:返回成功的回调函数
+ */
+function showLoading() {
+  wx.showLoading({
+    title: '加载中',
+    mask: true,
+    success: res => {
+
+    },
+    fail:res=>{
+      wx.hideLoading()
+    }
+  })
+}
+
+/***
+ * 
  * 获取oppenid
  */
 function getopenid(openid) {
@@ -93,9 +113,18 @@ function getopenid(openid) {
   })
 }
 
+
+
+
+
+
+
+
+
 module.exports = {
   getData: getData,
   showModal: showModal,
   showToast: showToast,
   getopenid: getopenid,
+  showLoading: showLoading
 }

@@ -34,7 +34,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log(fun.getData)
+    console.log(api.api.menwei.login)
 
+    console.log(fun.getopenid(res=>{res}))
   },
 
   /**
@@ -73,6 +76,7 @@ Page({
   },
 
   login(e){
+    var that = this;
 
     let username = e.detail.value.username,
         password = e.detail.value.password
@@ -101,10 +105,26 @@ Page({
       return false;
     }
 
-    
-    wx.redirectTo({
-      url: '../../menwei/scancode/scancode',
-    })
+
+    var data = {
+      openid: that.data.openid,
+      username:username,
+      password: password
+    }
+
+    console.log(data)
+
+    // fun.showLoading()
+    // fun.getData(api.api.menwei.login,'POST',data,(res)=>{
+
+
+      
+    // })
+
+    // 登录成功跳转到二维码页面
+    // wx.redirectTo({
+    //   url: '../../menwei/scancode/scancode',
+    // })
   }
   
 
