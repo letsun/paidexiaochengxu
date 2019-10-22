@@ -3,15 +3,15 @@
   <view class="plate-wrap">
       <view class="plate-tip">请输入车牌号码：</view>
       <view class="plate-list">
-        <input class="plate-num" maxlength="1"></input>
-        <input class="plate-num" maxlength="1"></input>
-        <input class="plate-num" maxlength="1"></input>
-        <input class="plate-num" maxlength="1"></input>
-        <input class="plate-num" maxlength="1"></input>
-        <input class="plate-num" maxlength="1"></input>
-        <input class="plate-num" maxlength="1"></input>
-        <input class="plate-num" maxlength="1"></input>
+        <input class="plate-num" maxlength="1" bindinput="plateNum1"></input>
+        <input class="plate-num" maxlength="1" bindinput="plateNum2"></input>
+        <input class="plate-num" maxlength="1" bindinput="plateNum3"></input>
+        <input class="plate-num" maxlength="1" bindinput="plateNum4"></input>
+        <input class="plate-num" maxlength="1" bindinput="plateNum5"></input>
+        <input class="plate-num" maxlength="1" bindinput="plateNum6"></input>
+        <input class="plate-num" maxlength="1" bindinput="plateNum7"></input>
+        <input class="plate-num" maxlength="1" bindinput="plateNum8"></input>
       </view>
-      <view class="begin-rank">开始排队</view>
+      <view class="begin-rank" bindtap="beginRank">开始排队</view>
   </view>
 </view>

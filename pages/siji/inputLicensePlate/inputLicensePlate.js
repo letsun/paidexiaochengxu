@@ -1,3 +1,6 @@
+//引入接口页面
+var api = require("../../../utils/api.js");
+
 // pages/siji/inputLicensePlate/inputLicensePlate.js
 Page({
 
@@ -5,7 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    plateNum1: '',
+    plateNum2: '',
+    plateNum3: '',
+    plateNum4: '',
+    plateNum5: '',
+    plateNum6: '',
+    plateNum7: '',
+    plateNum8: '',
   },
 
   /**
@@ -14,53 +24,75 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  //输入的每格车牌号
+  plateNum1: function(e){
+    this.setData({
+      plateNum1: e.detail.value
+    })
+    console.log(this.data.plateNum1)
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  plateNum2: function (e) {
+    this.setData({
+      plateNum2: e.detail.value
+    })
+    console.log(this.data.plateNum2)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  plateNum3: function (e) {
+    this.setData({
+      plateNum3: e.detail.value
+    })
+    console.log(this.data.plateNum3)
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  plateNum4: function (e) {
+    this.setData({
+      plateNum4: e.detail.value
+    })
+    console.log(this.data.plateNum4)
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  plateNum5: function (e) {
+    this.setData({
+      plateNum5: e.detail.value
+    })
+    console.log(this.data.plateNum5)
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  plateNum6: function (e) {
+    this.setData({
+      plateNum6: e.detail.value
+    })
+    console.log(this.data.plateNum6)
   },
+  plateNum7: function (e) {
+    this.setData({
+      plateNum7: e.detail.value
+    })
+    console.log(this.data.plateNum7)
+  },
+  plateNum8: function (e) {
+    this.setData({
+      plateNum8: e.detail.value
+    })
+    console.log(this.data.plateNum8)
+  },
+  //点击开始排队按钮
+  beginRank: function(){
+    this.setData({
+      carPlate: this.data.plateNum1 + this.data.plateNum2 + this.data.plateNum3 + this.data.plateNum4 + this.data.plateNum5 + this.data.plateNum6 + this.data.plateNum7 + this.data.plateNum8
+    })
+    console.log(this.data.carPlate)
+    if (this.data.carPlate == ""){
+      wx.showToast({
+        icon: 'none',
+        title: '请输入车牌号'
+      })
+      return false;
+    }
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    wx.request({
+      url: api.api.getOpenId,
+      success: function(res){
+        
+      }
+    })
 
   }
 })

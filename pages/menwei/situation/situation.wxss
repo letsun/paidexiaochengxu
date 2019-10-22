@@ -1,0 +1,142 @@
+/* pages/menwei/situation/situation.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  margin: 0rpx 20rpx 0rpx 20rpx;
+}
+
+.header-item {
+  width: 33.3333%;
+  text-align: center;
+  position: relative;
+  font-size: 25rpx;
+  color: #888;
+  padding: 30rpx 0rpx 30rpx 0rpx;
+}
+
+.header-item-span {
+  height: 6rpx;
+  background: #fd7d00 ;
+  width: 30rpx;
+  position: absolute;
+  top: 60rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+  bottom: -10rpx;
+  transform: 2s;
+}
+
+
+.content {
+  margin: 0 25rpx 0 25rpx;
+}
+
+.content-item {
+  height: 350rpx;
+  width: 700rpx;
+
+  padding:50rpx 0rpx 30rpx 0rpx;
+  background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/paide/1_7.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.content-item-title {
+  display: flex;
+
+  font-size: 22rpx;
+  
+  padding: 0rpx 80rpx 0rpx 80rpx;
+}
+
+.content-item-title-left {
+  color: #888;
+  width: 50%;
+}
+
+.content-item-title-right {
+  text-align: right;
+  width: 50%;
+}
+
+.content-item-con {
+    padding: 0rpx 80rpx 0rpx 80rpx;
+    display: flex;
+}
+
+.content-item-conb {
+  padding: 0rpx 80rpx 0rpx 80rpx;
+    line-height: 200rpx;
+  font-size: 90rpx;
+  font-weight: bold;
+  text-align: center;
+  /* display: none; */
+}
+
+.content-item-con-left {
+  width: 66%;
+  line-height: 200rpx;
+  font-size: 90rpx;
+  font-weight: bold;
+}
+
+.content-item-con-right {
+  width: 34%
+}
+
+.content-item-con-right-top {
+  /* color: #fff;
+  background: #ccc; */
+  background:linear-gradient(to right,#fdb900,#faa200,#f68100);
+  color:#fff;
+  border-radius: 40rpx;
+  text-align: center;
+  width: 180rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  margin-top: 60rpx;
+  letter-spacing: 2rpx;
+}
+
+.content-item-con-right-bottom {
+  color: #fd7d00;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.content-item-bottom {
+    padding: 15rpx 80rpx 0rpx 80rpx;
+    display: flex;
+    font-size: 22rpx;
+    line-height: 40rpx;
+    color: #ccc;
+}
+
+
+.content-item-bottom span {
+  color: #333;
+}
+
+.content-item-bottom-left {
+  width: 55%;
+}
+
+.content-item-bottom-right {
+  width: 45%;
+}
+
+
