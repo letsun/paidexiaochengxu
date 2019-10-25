@@ -1,5 +1,5 @@
 // pages/menwei/index/index.js
-const app = getApp() 
+const app = getApp()
 const api = require('../../../utils/api.js')
 const fun = require('../../../utils/function.js')
 
@@ -37,7 +37,7 @@ Page({
     console.log(fun.getData)
     console.log(api.api.menwei.login)
 
-    console.log(fun.getopenid(res=>{res}))
+    console.log(fun.getopenid(res => { res }))
   },
 
   /**
@@ -75,22 +75,22 @@ Page({
 
   },
 
-  login(e){
+  login(e) {
     var that = this;
 
     let username = e.detail.value.username,
-        password = e.detail.value.password
+      password = e.detail.value.password
 
 
     var pattern = /^1[12345789]\d{9}$/;
-    if(username == ''|| username == null){
+    if (username == '' || username == null) {
 
-      fun.showToast("账号不能为空",'none')
+      fun.showToast("账号不能为空", 'none')
 
       return false;
     }
 
-    if (!pattern.test(username)){
+    if (!pattern.test(username)) {
 
       fun.showToast("请输入正确的账号", 'none')
 
@@ -106,26 +106,25 @@ Page({
     }
 
 
-    var data = {
+
+
+    fun.getData(api.api.menwei.login, 'POST', {
       openid: that.data.openid,
-      username:username,
+      username: username,
       password: password
-    }
-
-    console.log(data)
-
-    // fun.showLoading()
-    // fun.getData(api.api.menwei.login,'POST',data,(res)=>{
-
-
+    }, (res) => {
+      if (res.data.code == 200) {
+        fun.showToast('登录成功', 'success', (success) => {
+          // 登录成功跳转到二维码页面
+          wx.redirectTo({
+            url: '../../menwei/scancode/scancode',
+          })
+        })
+      }
       
-    // })
+    })
 
-    // 登录成功跳转到二维码页面
-    // wx.redirectTo({
-    //   url: '../../menwei/scancode/scancode',
-    // })
   }
-  
+
 
 })

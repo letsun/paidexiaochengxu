@@ -18,12 +18,23 @@ function getData(url, type, data, success) {
     data: data,
     success: res => {
       success(res)
+
+      if (!res.data.code == 200) {
+        wx.showToast({
+          title:res.data.message,
+          icon: 'none'
+        })
+      }
     },
 
     fail: res => {
-      wx.showLoading({
-        title: res.msg,
-        icon: 'none'
+      wx.showToast({
+        title: '网络异常，请重新刷新页面',
+        icon: 'none',
+        duration: 500,
+        mask: true,
+        success: function(res) {},
+        fail: function(res) {},
       })
     },
 
@@ -69,15 +80,17 @@ function showModal(title, content, confirm, cancel) {
  * success:返回成功的回调函数
  */
 
-function showToast(title, icon) {
+function showToast(title, icon, success) {
   wx.showToast({
     title: title,
     icon: icon,
     duration: 500,
     mask: true,
-    success: function(res) {},
-    fail: function(res) {},
+    success: function(res) {
 
+      success(res)
+    },
+    fail: function(res) {},
   })
 }
 
@@ -112,12 +125,6 @@ function getopenid(openid) {
     }
   })
 }
-
-
-
-
-
-
 
 
 

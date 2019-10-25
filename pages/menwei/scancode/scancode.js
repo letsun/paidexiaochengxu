@@ -34,14 +34,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    qrcode: new QRCode('canvas', {
-      text: "https://www.baidu.com",
-      width: 240,
-      height: 240,
-      colorDark: "#000000",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H,
-    })   
+    var that = this;
+    var codeType = 1;
+    that.getCode()   
   },
 
   /**
@@ -79,6 +74,9 @@ Page({
 
   },
 
+
+  
+
   bindTab(e){
     // 修改tab选中状态
     var that = this;
@@ -113,5 +111,36 @@ Page({
     that.setData({
       index: e.detail.value,
     })
+  },
+
+
+
+  /**
+   * 
+   * 获取排队二维码
+   * 
+   */
+  getCode(){
+    // fun.getData(api.api.meiwei.getCode,'GET',{
+    //   codeType:codeType,
+    //   openid:openid,
+    //   parkid:parkid
+    // },(res)=>{
+    //   if (res.data.code == 200) {
+        
+    //   } 
+    // })
+
+  
+    qrcode: new QRCode('canvas', {
+      text: "https://www.baidu.com",
+      width: 240,
+      height: 240,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H,
+    })
   }
+
+
 })
