@@ -1,104 +1,52 @@
-<!--pages/menwei/record/record.wxml-->
+<!-- pages/menwei/record/record.wxml -->
 <view class="container">
-
   <!-- 头部搜索框 -->
   <view class="header">
-
     <view class="header-inp">
-      <input placeholder-class="placeholderStyle" placeholder="输入车牌号码/司机名称搜索"></input>
+      <input placeholder-class="placeholderStyle" placeholder="输入车牌号码/司机名称搜索"  bindconfirm="search"></input>
     </view>
-
     <picker class="hader-pick" mode="date" value="{{date}}" start="2015-09-01" end="2099-09-01" bindchange="bindDateChange">
       <image src="../../images/1_8.png"></image>
     </picker>
   </view>
-
-
   <!-- 内容 -->
   <view class="content">
-    <view class="content-title">
-     {{data}}
-    </view>
-
+    <view class="content-title">{{data}}</view>
     <view class="content-con">
-      <view class="content-con-item">
+      <view class="content-con-item" wx:for="{{childList}}" wx:key="">
         <view class="item-con">
           <view class="item-con-left">
             <text>车牌号码：</text>
-            <span>粤B466S1</span>
+            <span>{{item.platNo}}</span>
           </view>
-
           <view class="item-con-right">
             <text>司机姓名：</text>
-            <span>李亚伟</span>
+            <span>{{item.driverName}}</span>
           </view>
         </view>
         <view class="item-con">
           <text>联系电话：</text>
-          <span>18977889900</span>
+          <span>{{item.contactPhone}}</span>
         </view>
-
-
         <view class="item-con">
           <text>排队时间：</text>
-          <span>2019-09-09 11:30:20</span>
+          <span>{{item.contactPhone}}</span>
         </view>
         <view class="item-con">
           <text>进场时间：</text>
-          <span>2019-09-09 11:30:20</span>
+          <span>{{item.intoTime}}</span>
         </view>
         <view class="item-con">
           <view class="item-con-left">
             <text>出场时间：</text>
-            <span>2019-09-09 11:30:20</span>
+            <span>{{item.outTime}}</span>
           </view>
-
           <view class="item-con-right">
             <text>等待时长：</text>
-            <span>60分钟</span>
-          </view>
-        </view>
-      </view>
-
-      <view class="content-con-item">
-        <view class="item-con">
-          <view class="item-con-left">
-            <text>车牌号码：</text>
-            <span>粤B466S1</span>
-          </view>
-
-          <view class="item-con-right">
-            <text>司机姓名：</text>
-            <span>李亚伟</span>
-          </view>
-        </view>
-        <view class="item-con">
-          <text>联系电话：</text>
-          <span>18977889900</span>
-        </view>
-
-
-        <view class="item-con">
-          <text>排队时间：</text>
-          <span>2019-09-09 11:30:20</span>
-        </view>
-        <view class="item-con">
-          <text>进场时间：</text>
-          <span>2019-09-09 11:30:20</span>
-        </view>
-        <view class="item-con">
-          <view class="item-con-left">
-            <text>出场时间：</text>
-            <span>2019-09-09 11:30:20</span>
-          </view>
-
-          <view class="item-con-right">
-            <text>等待时长：</text>
-            <span>60分钟</span>
+            <span>{{item.waitTime}}</span>
           </view>
         </view>
       </view>
     </view>
   </view>
-
 </view>

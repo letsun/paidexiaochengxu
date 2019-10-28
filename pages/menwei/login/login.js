@@ -23,6 +23,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    //openid
     fun.getopenid(res => {
       this.setData({
         openid: res
@@ -34,10 +35,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(fun.getData)
-    console.log(api.api.menwei.login)
 
-    console.log(fun.getopenid(res => { res }))
   },
 
   /**
@@ -81,22 +79,12 @@ Page({
     let username = e.detail.value.username,
       password = e.detail.value.password
 
-
-    var pattern = /^1[12345789]\d{9}$/;
     if (username == '' || username == null) {
 
       fun.showToast("账号不能为空", 'none')
 
       return false;
     }
-
-    if (!pattern.test(username)) {
-
-      fun.showToast("请输入正确的账号", 'none')
-
-      return false;
-    }
-
 
     if (password == '' || password == null) {
 
@@ -117,9 +105,11 @@ Page({
         fun.showToast('登录成功', 'success', (success) => {
           // 登录成功跳转到二维码页面
           wx.redirectTo({
-            url: '../../menwei/scancode/scancode',
+            url: '../../menwei/scancode/scancode?companyId='+ res.data.result.companyId,
           })
         })
+      }else {
+        fun.showToast(res.data.message,'none',(success)=>{})
       }
       
     })

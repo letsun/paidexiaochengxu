@@ -42,6 +42,8 @@ page {
   width: 50%;
   text-align: right;
   color: #fd7d00;
+  padding: 8rpx 0rpx;
+  font-size: 24rpx;
 }
 
 .content-qrcode {

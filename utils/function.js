@@ -1,3 +1,57 @@
+var api = require("../utils/api.js");
+
+/***
+ * 
+ * 获取oppenid
+ */
+function getopenid(callback) {
+  wx.login({
+    success: reg => {
+      // getData(api.api.getOpenId, 'POST',{
+      //   data:reg.code
+      // },(res)=>{
+      //   if (res.data.code == 200) {
+      //     openid(res.data.result.openid)
+      //   }else{
+      //     showToast(res.data.message,'none',success=>{})
+      //   }
+      // })
+      wx.request({
+        url: api.api.getOpenId,
+        method: 'POST',
+        header: {
+          'Accept': 'application/json',
+          "content-type": "application/x-www-form-urlencoded"
+        },
+
+        data: {
+          code: reg.code,
+        },
+        success: res => {
+          callback(res.data.result.openid)
+        },
+
+        fail: res => {
+          wx.hideLoading();
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 500,
+            mask: true,
+            success: function (res) { },
+            fail: function (res) { },
+          })
+        },
+
+        complete: res => {
+          wx.hideLoading();
+        }
+
+      })
+    }
+  })
+}
+
 /*
  * ajax请求方法
  * type   请求类型
@@ -12,19 +66,12 @@ function getData(url, type, data, success) {
     method: type,
     header: {
       'Accept': 'application/json',
-      'content-type': 'application/json',
+      "content-type": "application/x-www-form-urlencoded"
     },
 
     data: data,
     success: res => {
       success(res)
-
-      if (!res.data.code == 200) {
-        wx.showToast({
-          title:res.data.message,
-          icon: 'none'
-        })
-      }
     },
 
     fail: res => {
@@ -33,8 +80,8 @@ function getData(url, type, data, success) {
         icon: 'none',
         duration: 500,
         mask: true,
-        success: function(res) {},
-        fail: function(res) {},
+        success: function (res) { },
+        fail: function (res) { },
       })
     },
 
@@ -86,11 +133,11 @@ function showToast(title, icon, success) {
     icon: icon,
     duration: 500,
     mask: true,
-    success: function(res) {
+    success: function (res) {
 
       success(res)
     },
-    fail: function(res) {},
+    fail: function (res) { },
   })
 }
 
@@ -108,23 +155,13 @@ function showLoading() {
     success: res => {
 
     },
-    fail:res=>{
+    fail: res => {
       wx.hideLoading()
     }
   })
 }
 
-/***
- * 
- * 获取oppenid
- */
-function getopenid(openid) {
-  wx.login({
-    success: res => {
-      openid(res.code)
-    }
-  })
-}
+
 
 
 

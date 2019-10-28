@@ -11,20 +11,19 @@
   </view>
 
   <view class="content">
-    <view class="content-item" style=" ">
+    <view class="content-item" style=" " wx:for="{{QueueEvolutionList}}" wx:key="">
 
 
       <!-- 排队序号 -->
       <view class="content-item-title">
 
         <view class="content-item-title-left">
-          排队序号:
+          排队序号: 
         </view>
 
         <view class="content-item-title-right">
-          2019-09-07 11:30:00
+          {{item.showTime}}
         </view>
-
 
       </view>
 
@@ -35,12 +34,12 @@
 
         <view class="content-item-con-left">
 
-          A01
+          {{item.queueSequence}}
         </view>
 
         <view class="content-item-con-right">
 
-          <view class="content-item-con-right-top" bindtap="clfx">
+          <view class="content-item-con-right-top" data-queueCodeRecordId = '{{item.queueCodeRecordId}}' bindtap="release">
             车辆放行
           </view>
 
@@ -52,7 +51,7 @@
 
       <!-- 排队等候 -->
       <view class="content-item-conb" wx:if="{{tabindex==2}}">
-        A01
+        {{item.queueSequence}}
       </view>
 
       <!-- 底部车牌信息 -->
@@ -60,19 +59,19 @@
 
         <view class="content-item-bottom-left">
           <view>车牌号码:
-            <span>粤B466S1</span>
+            <span>{{item.platNo}}</span>
           </view>
           <view>司机姓名:
-            <span>李亚伟</span>
+            <span>{{item.driverName}}</span>
           </view>
         </view>
 
         <view class="content-item-bottom-right">
           <view>装车地点:
-            <span>1号库房</span>
+            <span>{{item.loadWhere}}</span>
           </view>
           <view>联系电话:
-            <span>18961889066</span>
+            <span>{{item.contactPhone}}</span>
           </view>
         </view>
       </view>

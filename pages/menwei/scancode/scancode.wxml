@@ -11,8 +11,8 @@
           排队动态二维码
         </view>
 
-        <picker class="content-header-right"  range="{{array}}" bindchange="bindDateChange">
-          {{array[index]}}
+        <picker class="content-header-right"  range="{{ParkList}}" bindchange="bindDateChange" range-key="parkName">
+          {{ParkList[index].parkName}}
         </picker>
       </view>
 

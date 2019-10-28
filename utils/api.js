@@ -1,4 +1,5 @@
-var dev  = "127.0.0.1:8080";
+var dev  = "http://192.168.1.41:8899";
+
 var test = "";
 var ip =  dev;
 
@@ -17,6 +18,7 @@ var api = {
     getParkList: ip + '/wap/gatekeeper/getParkList',  //获取园区
     getQueueEvolutionList: ip + '/wap/gatekeeper/getQueueEvolutionList',  //获取园区排队纪录
     getCode: ip + '/wap/gatekeeper/getCode',  //获取二维码
+    letPass: ip + '/wap/gatekeeper/letPass',  //门卫放行操作
   }
 }
 
