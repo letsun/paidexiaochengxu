@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+
     tabarray: ["出库排队", "入库排队"],
     index: 0,  //默认选中第一个园区下标
 
@@ -16,17 +17,20 @@ Page({
     codeType: 2,  //默认选中出库排队二维码
 
     timeOut: '',
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+
   onLoad: function (options) {
 
     var that = this;
     that.setData({
       companyId: options.companyId
     })
+
   },
 
   /**

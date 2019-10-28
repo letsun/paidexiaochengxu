@@ -3,7 +3,7 @@
   <!-- 头部搜索框 -->
   <view class="header">
     <view class="header-inp">
-      <input placeholder-class="placeholderStyle" placeholder="输入车牌号码/司机名称搜索"  bindconfirm="search"></input>
+      <input placeholder-class="placeholderStyle" placeholder="输入车牌号码/司机名称搜索" bindconfirm="search"></input>
     </view>
     <picker class="hader-pick" mode="date" value="{{date}}" start="2015-09-01" end="2099-09-01" bindchange="bindDateChange">
       <image src="../../images/1_8.png"></image>
