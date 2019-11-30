@@ -1,24 +1,54 @@
 // pages/siji/currentQueueDetailForm/currentQueueDetailForm.js
+
+const api = require('../../../utils/api.js')
+const fun = require('../../../utils/function.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    // billType: 3,//that.data.billType
+    // billId: "7db6cd002e1b43fb96ec60cd76ed0824",//that.data.result.billId
   },
-  showModal: function() {
-    wx.showModal({
-      title: '温馨提示',
-      content: '货物已顺利送达',
-      confirmText: '确认',
-      confirmColor: '#ff8500',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    that.setData({
+      billId: options.billId,
+      billType: options.billType
+    })
+  },
+
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    var that = this;
+    that.getBillItemLi()
+  },
+
+
+
+  /**
+    * 出入库明细
+    */
+  getBillItemLi() {
+    var that = this
+    fun.getData(api.api.siji.getBillItemLi, 'GET', {
+      billType: that.data.billType,//that.data.billType
+      billId: that.data.billId,//that.data.result.billId
+    }, (res) => {
+      if (res.data.code == 200) {
+        var list= res.data.result;
+        that.setData({
+          list:list
+        })
+      } else {
+        fun.showToast(res.data.message, 'none', (success) => { })
       }
     })
   }

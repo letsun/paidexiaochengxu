@@ -13,10 +13,13 @@ page {
   position: relative;
 }
 
-.containera {
-  padding-top: 80rpx;
-}
 
+.logout {
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 0rpx 60rpx;
+  text-align: right;
+}
 
 .content {
   margin: 0rpx 60rpx 0rpx 60rpx;
@@ -34,12 +37,12 @@ page {
 }
 
 .content-hedear-left {
-  width: 50%;
+  width: 55%;
   text-align: left;
 }
 
 .content-header-right {
-  width: 50%;
+  width: 45%;
   text-align: right;
   color: #fd7d00;
   padding: 8rpx 0rpx;
@@ -51,6 +54,11 @@ page {
   width: 480rpx;
   margin-top: 30rpx;
   padding: 0rpx 75rpx 0rpx 75rpx;
+}
+
+.content-qrcode canvas {
+  height: 480rpx!important;
+  width: 480rpx!important;
 }
 
 .content-qrcode-img {
@@ -84,6 +92,7 @@ page {
 
 .content-bottom {
   display: flex;
+  background: #fece00;
 }
 
 .content-bottom-item {
@@ -91,7 +100,7 @@ page {
 }
 
 .yxz {
-    width: 50%;
+  width: 100%;
   line-height: 100rpx;
   text-align: center;
   font-size: 30rpx;
@@ -101,7 +110,7 @@ page {
 }
 
 .wxz {
-    width: 50%;
+  width: 100%;
   line-height: 100rpx;
   text-align: center;
   font-size: 30rpx;

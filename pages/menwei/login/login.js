@@ -9,69 +9,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    //openid
-    fun.getopenid(res => {
-      this.setData({
-        openid: res
-      })
-    })
-  },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this
+    //openid
+    fun.getopenid(res => {
+      that.setData({
+        openid: res
+      })
+      that.getInfoByOpenId();
+    })
   },
+
+
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 门卫登录
    */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   login(e) {
     var that = this;
 
@@ -93,8 +53,6 @@ Page({
     }
 
 
-
-
     fun.getData(api.api.menwei.login, 'POST', {
       openid: that.data.openid,
       username: username,
@@ -104,16 +62,42 @@ Page({
         fun.showToast('登录成功', 'success', (success) => {
           // 登录成功跳转到二维码页面
           wx.redirectTo({
-            url: '../../menwei/scancode/scancode?companyId='+ res.data.result.companyId,
+            url: '../../menwei/scancode/scancode?companyId=' + res.data.result.companyId + '&accountId=' + res.data.result.accountId,
           })
         })
-      }else {
-        fun.showToast(res.data.message,'none',(success)=>{})
+      } else {
+        fun.showToast(res.data.message, 'none', (success) => { })
       }
-      
+
     })
+  },
 
+  /**
+   * 通过openId用户获取相关信息判断是否已绑定
+   * 
+   * accountType 1 为门卫 2为司机
+   */
+  getInfoByOpenId() {
+    var that = this;
+    fun.getData(api.api.menwei.getInfoByOpenId, 'POST', {
+      openId: that.data.openid,
+    }, (res) => {
+      if (res.data.code == 200) {
+        if (res.data.result.accountType == 1) {
+          if (res.data.result.accountId && res.data.result.accountId != '') {
+              wx.redirectTo({
+                url: '../../menwei/scancode/scancode?companyId=' + res.data.result.companyId + '&accountId=' + res.data.result.accountId ,
+              })
+          }
+        } else {
+
+          wx.redirectTo({
+            url: '../../siji/inputLicensePlate/inputLicensePlate?openId=' + that.data.openid,
+          })
+        }
+      } else {
+        fun.showToast(res.data.message, 'none', (success) => { })
+      }
+    })
   }
-
-
 })

@@ -13,12 +13,13 @@
   <view class="content">
     <view class="content-item" style=" " wx:for="{{QueueEvolutionList}}" wx:key="">
 
+      <!-- <block wx:if="{{}}"></block> -->
 
       <!-- 排队序号 -->
       <view class="content-item-title">
 
         <view class="content-item-title-left">
-          排队序号: 
+          排队序号:
         </view>
 
         <view class="content-item-title-right">
@@ -38,14 +39,32 @@
         </view>
 
         <view class="content-item-con-right">
+          <block wx:if="{{tabindex == 0}}">
+            <view class="content-item-con-right-top" data-queueCodeRecordId='{{item.queueCodeRecordId}}' bindtap="release">
+              放行进场
+            </view>
 
-          <view class="content-item-con-right-top" data-queueCodeRecordId = '{{item.queueCodeRecordId}}' bindtap="release">
-            车辆放行
-          </view>
+            <view class="content-item-con-right-bottom">
+              仓库已放行,待进场
+            </view>
+          </block>
 
-          <view class="content-item-con-right-bottom">
-            仓库已放行,待进场
-          </view>
+
+          <block wx:else>
+
+            <block wx:if="{{item.queueStatus==4}}">
+              <view class="content-item-con-right-top" data-queueCodeRecordId='{{item.queueCodeRecordId}}' bindtap="release">
+                放行出场
+              </view>
+
+              <view class="content-item-con-right-bottom">
+                完成装车,待出场
+              </view>
+            </block>
+          </block>
+
+
+
         </view>
       </view>
 
@@ -67,7 +86,13 @@
         </view>
 
         <view class="content-item-bottom-right">
-          <view>装车地点:
+          <view>
+            <block wx:if="{{queueType==1}}">
+              卸车地点:
+            </block>
+            <block wx:else>
+              装车地点:
+            </block>
             <span>{{item.loadWhere}}</span>
           </view>
           <view>联系电话:

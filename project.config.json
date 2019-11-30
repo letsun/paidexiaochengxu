@@ -47,8 +47,12 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
-			"current": 11,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
@@ -59,70 +63,56 @@
 				},
 				{
 					"id": 1,
-					"name": "扫码门卫",
+					"name": "门卫显示扫码",
 					"pathName": "pages/menwei/scancode/scancode",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 2,
-					"name": "查看排队情况",
+					"name": "门卫查看排队情况",
 					"pathName": "pages/menwei/situation/situation",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "排队纪录",
+					"id": 3,
+					"name": "门卫排队纪录",
 					"pathName": "pages/menwei/record/record",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/siji/currentQueueDetailForm/currentQueueDetailForm",
+					"id": 4,
+					"name": "司机单据详情",
 					"pathName": "pages/siji/currentQueueDetailForm/currentQueueDetailForm",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/siji/currentQueueDetailApply/currentQueueDetailApply",
-					"pathName": "pages/siji/currentQueueDetailApply/currentQueueDetailApply",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/siji/historyEnterDetail/historyEnterDetail",
+					"id": 6,
+					"name": "司机入库历史记录详情",
 					"pathName": "pages/siji/historyEnterDetail/historyEnterDetail",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/siji/historyOutDetail/historyOutDetail",
+					"id": 7,
+					"name": "司机出库记录单据详情",
 					"pathName": "pages/siji/historyOutDetail/historyOutDetail",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/siji/queueRecord/queueRecord",
+					"id": 8,
+					"name": "司机排队记录",
 					"pathName": "pages/siji/queueRecord/queueRecord",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/siji/warehousing/warehousing",
-					"pathName": "pages/siji/warehousing/warehousing",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/siji/inputLicensePlate/inputLicensePlate",
+					"id": 8,
+					"name": "司机输入车牌号",
 					"pathName": "pages/siji/inputLicensePlate/inputLicensePlate",
 					"query": "",
 					"scene": null
@@ -131,6 +121,21 @@
 					"id": -1,
 					"name": "pages/index/index",
 					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "司机出入库排队单号",
+					"pathName": "pages/siji/outhousing/outhousing",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "司机入库记录详情",
+					"pathName": "pages/siji/historyEnterDetail/historyEnterDetail",
+					"query": "",
 					"scene": null
 				}
 			]

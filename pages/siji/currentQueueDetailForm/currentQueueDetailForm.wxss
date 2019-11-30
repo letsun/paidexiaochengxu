@@ -1,6 +1,6 @@
 /* pages/siji/currentQueueDetailForm/currentQueueDetailForm.wxss */
 .container{
-  padding-bottom: 150rpx;
+
 }
 .relation-form-wrap{
   width: 637rpx;
@@ -16,13 +16,13 @@
 }
 .form-item{
   width: 100%;
-  height: 72rpx;
   line-height: 72rpx;
-  border-top: 1px solid #ededed;
-  border-right: 1px solid #ededed;
-}
-.form-item:last-child{
   border-bottom: 1px solid #ededed;
+  border-right: 1px solid #ededed;
+  display: flex;
+}
+.form-item:first-child{
+  border-top: 1px solid #ededed;
 }
 .form-title{
   display: inline-block;
@@ -39,6 +39,10 @@
   font-size: 26rpx;
   color: #333;
   padding-left: 26rpx;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .more{
   color: #ff8402

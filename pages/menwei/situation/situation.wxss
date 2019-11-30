@@ -132,11 +132,11 @@ page {
 }
 
 .content-item-bottom-left {
-  width: 55%;
+  width: 50%;
 }
 
 .content-item-bottom-right {
-  width: 45%;
+  width: 50%;
 }
 
 

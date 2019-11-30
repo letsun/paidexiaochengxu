@@ -1,60 +1,30 @@
-<!--pages/siji/queueRecord/queueRecord.wxml-->
-
+<!-- pages/siji/queueRecord/queueRecord.wxml -->
 <view class="container">
   <view class='topTabSwiper'>
-    <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>出库记录</view>
-    <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>入库记录</view>
+    <view class='tab  {{index== tabindex ? "tabBorer" : ""}}' data-index="{{index}}" bindtap='checkCurrent' wx:for="{{tabarray}}" wx:key="xxx">
+      {{item}}
+    </view>
   </view>
-  <swiper current="{{currentData}}" class='swiper' style="height:600px;" duration="300" bindchange="bindchange">
-    <swiper-item>
-      <view class="queue-list" wx:for="{{4}}" wx:key="">
+  <view class="queue-list" data-billId ="{{item.billId}}" data-billType="{{item.billType}}" data-queueCodeRecordId ="{{item.queueCodeRecordId}}" wx:for = "{{result}}" wx:key="" bindtap="getBillDetail" data-relateBillNum="{{item.relateBillNum}}">
 
-        <view class="queue-row">
-          <view class="queue-row-wrap">
-            排队序号：
-            <text class="queue-row-content">A03</text>
-          </view>
-          <view class="queue-row-wrap">
-            <text class="queue-row-content">2019-09-09 11:30:12</text>
-          </view>
-        </view>
-
-        <view class="queue-row">
-          <view class="queue-row-wrap">
-             排队类型：
-            <text class="queue-row-content">出库排队</text>
-          </view>
-          <view class="queue-row-wrap">
-            关联单据数量：
-            <text class="queue-row-content">1张</text>
-          </view>
-        </view>
-
+    <view class="queue-row">
+      <view class="queue-row-wrap">
+        排队序号：
+        <text class="queue-row-content">{{item.queueSequence}}</text>
       </view>
-    </swiper-item>
-
-    <swiper-item>
-      <view class="queue-list" wx:for="{{2}}" wx:key="">
-
-        <view class="queue-row">
-          <view class="queue-row-wrap">
-            排队序号：
-            <text class="queue-row-content">A03</text>
-          </view>
-          <view class="queue-row-wrap">
-            <text class="queue-row-content">2019-09-09 11:30:12</text>
-          </view>
-        </view>
-
-        <view class="queue-row">
-          <view class="queue-row-wrap">
-             排队类型：
-            <text class="queue-row-content">出库排队</text>
-          </view>
-         
-        </view>
-
+      <view class="queue-row-wrap">
+        <text class="queue-row-content">{{item.createDate}}</text>
       </view>
-    </swiper-item>
-  </swiper>
+    </view>
+    <view class="queue-row">
+      <view class="queue-row-wrap">
+        排队类型：
+        <text class="queue-row-content">{{item.queueType}}</text>
+      </view>
+      <view class="queue-row-wrap" wx:if="{{codeType==2}}">
+        关联单据数量：
+        <text class="queue-row-content">{{item.relateBillNum}}张</text>
+      </view>
+    </view>
+  </view>
 </view>

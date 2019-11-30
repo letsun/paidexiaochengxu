@@ -3,6 +3,8 @@
 const api = require('../../../utils/api.js')
 const fun = require('../../../utils/function.js')
 
+var hasNext = true;
+
 Page({
 
   /**
@@ -10,13 +12,11 @@ Page({
    */
   data: {
 
-    data: "2019-10-17",
     pageNum: 1,
     pageSize: '10',
     queryKey: '',
     queueDate: '',
-
-    flag: true,
+    childList:'',
  },
 
   /**
@@ -27,6 +27,7 @@ Page({
     var that = this;
     that.setData({
       parkId: options.parkId,
+      queueType: options.queueType,
     })
  },
 
@@ -127,32 +128,37 @@ Page({
     // debugger
     var that = this;
     fun.getData(api.api.menwei.getHistoryQueueRecord, 'GET', {
-      parkId: "b8897e9e7a8e4399bc3d5489960ad70f",  //that.data.parkId
+
+      // parkId: "b8897e9e7a8e4399bc3d5489960ad70f",
+      parkId: that.data.parkId,  //that.data.parkId
       pageNum: that.data.pageNum,
       pageSize: that.data.pageSize,
       queryKey: that.data.queryKey,
-      queueDate: that.data.queueDate
+      queueDate: that.data.queueDate,
+      codeType: that.data.queueType,
     }, (res) => {
       if (res.data.code == 200) {
         var that = this;
-        var childList = that.data.childList;       
-        var hasNext = res.data.result.hasNext;
+        // var childList = res.data.result.childList;             
+        var curQueueDate = res.data.result.curQueueDate;
 
 
-        if (hasNext == true) { 
-          if(childList==''||childList==null){
-            that.setData({
-              childList: res.data.result.childList,
-            })
+        hasNext = res.data.result.hasNext;
+        if (that.data.childList == '' || that.data.childList == null) {
+          that.setData({
+            curQueueDate: res.data.result.curQueueDate,
+            childList: res.data.result.childList,
+          })
+        }else {
+          if (hasNext != true) {
+            fun.showToast('没有更多数据了', 'none', (success) => { })
           }else {
             that.setData({
               childList: childList.concat(res.data.result.childList),
-            })
+            })  
           }
-        } else {
-          fun.showToast('没有更多数据了', 'none', (success) => { })
+       
         }
-        
 
         wx.hideLoading();
       } else {

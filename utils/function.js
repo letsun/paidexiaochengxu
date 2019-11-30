@@ -86,7 +86,7 @@ function getData(url, type, data, success) {
     },
 
     complete: res => {
-
+      wx.hideLoading();
     }
 
   })
@@ -131,7 +131,7 @@ function showToast(title, icon, success) {
   wx.showToast({
     title: title,
     icon: icon,
-    duration: 500,
+    duration: 2000,
     mask: true,
     success: function (res) {
 

@@ -1,25 +1,28 @@
 /* pages/siji/inputLicensePlate/inputLicensePlate.wxss */
-page{
+page {
   width: 100%;
   height: 100%;
 }
-.plate-wrap{
+
+.plate-wrap {
   width: 670rpx;
   margin: 0 auto;
 }
 
-.plate-wrap .plate-tip{
+.plate-wrap .plate-tip {
   line-height: 48px;
   color: #fff;
 
   padding-top: 50px;
 }
-.plate-wrap .plate-list{
+
+.plate-wrap .plate-list {
   display: flex;
   flex-direction: row;
-  justify-content: space-around; 
+  justify-content: space-around;
 }
-.plate-wrap .plate-list .plate-num{
+
+.plate-wrap .plate-list .plate-num {
   width: 70rpx;
   height: 70rpx;
   line-height: 70rpx;
@@ -27,15 +30,224 @@ page{
   background-color: #fff;
   border-radius: 5px;
 }
-.plate-wrap .begin-rank{
- width: 100%;
- height: 70rpx;
- line-height: 70rpx;
- text-align: center;
- font-size: 28rpx;
- font-weight: bold;
- color: #ff7b00;
- background-color: #fff;
- border-radius: 35rpx;
- margin-top: 75rpx;
+
+.begin-rank {
+
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #ff7b00;
+  background-color: #fff;
+  border-radius: 35rpx;
+  margin-top: 75rpx;
+  margin: 0rpx 30rpx;
+}
+
+
+
+.pages_header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pages_header_top {
+  width: 33.3%;
+  height: 60rpx;
+  border-left: 5px solid green;
+  border-right: 5px solid green;
+}
+
+.pages_header_btm {
+  width: 70%;
+  background: green;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: white;
+  border-radius: 10rpx;
+  font-weight: normal;
+  font-size: 16pt;
+}
+
+.tips {
+  text-align: center;
+  margin: 60rpx 0;
+  font-size: 12pt;
+  color: #888888;
+}
+
+.plate-input-flag {
+  margin: 50rpx 30rpx;
+  color: #fff;
+  text-align: right;
+}
+
+.plate-input-body {
+  /*border: 1px solid red;*/
+
+  margin: 0 10rpx;
+}
+
+.plate-input-content {
+  display: flex;
+  flex-direction: row;
+
+  padding-top: 70rpx;
+
+  margin: 0px 15px;
+}
+
+.plate-nums-foc {
+  /* flex: 1; */
+  border: 1rpx solid #00bf70;
+  margin-right: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 4rpx;
+  background: #fff;
+
+  border-radius: 15rpx;
+}
+
+.plate-nums-first {
+  /* flex: 1; */
+  border: 2rpx solid #ccc;
+  margin-right: 15rpx;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  /* border-radius: 4rpx; */
+  background: #fff;
+
+  border-radius: 15rpx;
+
+  
+}
+
+.plate-num-text {
+  line-height: 70rpx;
+  height: 70rpx;
+  width: 70rpx;
+  display: block;
+
+  border-radius: 15rpx;
+}
+
+.new-plate-input-content {
+  display: flex;
+  /* flex-direction: row; */
+  margin: 0px 15px;
+  padding-top: 70rpx;
+}
+
+
+.kb_top {
+  align-content: relative;
+  width: 100%;
+  height: 74rpx;
+  background: #fff;
+  border-top: solid #ebebeb 2rpx;
+  border-bottom: 15rpx solid #d7d8dc;
+  position: relative;
+}
+
+.kb_top text{
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  display: inline-block;
+
+  padding: 35rpx;
+  color: #03BF70;
+
+  font-size: 30rpx;
+  line-height: 0rpx;
+}
+
+.keyboard {
+  z-index: 9999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: #d7d8dc;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 15rpx solid #d7d8dc;
+}
+
+.td {
+  font-family: "微软雅黑";
+  flex-grow: 1;
+  text-align: center;
+  font-size: 34rpx;
+  height: 86rpx;
+  line-height: 80rpx;
+  background: #fff;
+  margin: 10rpx 5rpx;
+  color: #333;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  box-shadow: 0rpx 2rpx 0rpx #a9a9a9;
+}
+
+.td_nor {
+  flex: 1 1 6%;
+}
+
+.td_num {
+  flex: 1 1 8%;
+}
+
+.td_spec {
+  flex: 1 1 12%;
+}
+
+.board_bg {
+  box-shadow: 0 0 0 #e5e5e5;
+  background: #e5e5e5;
+}
+
+.del-first {
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  width: 137rpx;
+  height: 86rpx;
+  background-color: #fff;
+  box-shadow: 0rpx 2rpx 0rpx #a9a9a9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+}
+
+.del-hover {
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  width: 137rpx;
+  height: 86rpx;
+  background-color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  box-shadow: 0 0 0 #e5e5e5;
+}
+
+.del-img {
+  display: block;
+  width: 46rpx;
+  height: 38rpx;
 }

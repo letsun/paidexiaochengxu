@@ -11,7 +11,7 @@ Page({
 
     tabindex: 0, //默认选中第一个；
 
-    status: 1,
+    status: 0,
 
     actionType:'1'
   },
@@ -24,9 +24,19 @@ Page({
     var that = this;
     that.setData({
       parkId: options.parkId,
-      queueType: options.queueType,
-
+      queueType: options.queueType, //1入库 2出库
     })
+
+
+    if(options.queueType==1) {
+      wx.setNavigationBarTitle({
+        title: '入库排队',
+      })
+    }else {
+      wx.setNavigationBarTitle({
+        title: '出库排队',
+      })
+    }
   },
 
   /**
@@ -89,16 +99,14 @@ Page({
    * 
    * 获取园区排队情况
    * 
-   * status: 1等待进场 5等待出场 0正在排队
+   * status: 0等待进场 2等待出场 0正在排队
    */
   getQueueEvolutionList() {
     fun.showLoading()
     var that = this;
     fun.getData(api.api.menwei.getQueueEvolutionList, 'GET', {
       parkId: that.data.parkId,
-
       queueType: that.data.queueType,
-
       status: that.data.status,
     }, (res) => {
       if (res.data.code == 200) {
@@ -106,7 +114,6 @@ Page({
         that.setData({
           QueueEvolutionList: QueueEvolutionList
         })
-
 
         wx.hideLoading();
       } else {
@@ -126,26 +133,25 @@ Page({
     var that = this;
     // 点击切换下标
     that.setData({
-      tabindex: e.currentTarget.dataset.index
+      tabindex: e.currentTarget.dataset.index,
+      getQueueEvolutionList:'',
     })
 
     if (e.currentTarget.dataset.index == 0) {
       that.setData({
-        status: 1,
-        actionType:1
+        status: 0,
+        actionType: 1
       })
     } else if (e.currentTarget.dataset.index == 1) {
       that.setData({
-        status: 5,
-        actionType:2
+        status: 4,
+        actionType: 3
       })
     } else {
       that.setData({
-        status: 0
+        status: 1,
       })
     }
-
-    
     that.getQueueEvolutionList()
   },
 
@@ -156,6 +162,7 @@ Page({
     var that = this;
     var queueCodeRecordId = e.currentTarget.dataset.queuecoderecordid;
     that.setData({
+      actionType: that.data.actionType,
       queueCodeRecordId:queueCodeRecordId
     })
     fun.showModal('放行提示', '即将向司机发送进场通知,确认此操作？', (confirm) => {
@@ -184,7 +191,6 @@ Page({
       queueCodeRecordId:that.data.queueCodeRecordId
     }, (res) => {
       if (res.data.code == 200) {
-        
         that.getQueueEvolutionList()
       } else {
         fun.showToast(res.data.message, 'none', (success) => { })

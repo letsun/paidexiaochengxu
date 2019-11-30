@@ -1,7 +1,9 @@
 // pages/menwei/scancode/scancode.js
 const QRCode = require('../../../utils/qrcode.js');
-const api = require('../../../utils/api.js')
-const fun = require('../../../utils/function.js')
+const api = require('../../../utils/api.js');
+const fun = require('../../../utils/function.js');
+// var adminUrl = 'http://yecl.lxcyhd.com/wap/driver';
+var adminUrl = 'https://wms.ebiaoji.com/wap/driver';
 Page({
 
   /**
@@ -9,7 +11,16 @@ Page({
    */
   data: {
 
-    tabarray: ["出库排队", "入库排队"],
+    flag:true,
+
+    // tabarray: [
+
+    //   {
+    //     index: "出库排队",
+        
+    //   },
+    //   { index: "入库排队",}
+    //   ],
     index: 0,  //默认选中第一个园区下标
 
     tabindex: 0, //默认选中第一个
@@ -28,7 +39,8 @@ Page({
 
     var that = this;
     that.setData({
-      companyId: options.companyId
+      companyId: options.companyId,
+      accountId: options.accountId
     })
 
   },
@@ -37,6 +49,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this;
     //openid
     fun.getopenid(res => {
@@ -48,16 +67,12 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+    var that =this;
+    var timeOut = that.data.timeOut
+    clearTimeout(timeOut);
 
   },
 
@@ -126,11 +141,16 @@ Page({
       companyId: that.data.companyId,
     }, (res) => {
       if (res.data.code == 200) {
-        var index = that.data.index
+        var index = that.data.index;
         that.setData({
           ParkList: res.data.result,
-          parkId: res.data.result[index].parkId
+          parkId: res.data.result[index].parkId,
+          isOut: res.data.result[index].isOut,
+          isIn: res.data.result[index].isIn,
         })
+
+        
+
         // 获取二维码
         that.getCode();
       } else {
@@ -146,7 +166,6 @@ Page({
    */
   getCode() {
     var that = this;
-
     fun.showLoading();
     fun.getData(api.api.menwei.getCode, 'GET', {
       codeType: that.data.codeType,
@@ -154,24 +173,30 @@ Page({
       parkId: that.data.parkId
     }, (res) => {
       if (res.data.code == 200) {
-        
-        qrcode: new QRCode('canvas', {
-          text: 'http://yecl.lxcyhd.com/wap/driver?queueCode=' + res.data.result.code,
-          width: 240,
-          height: 240,
-          colorDark: "#000000",
-          colorLight: "#ffffff",
-          correctLevel: QRCode.CorrectLevel.H,
+        that.setData({
+          flag: true,
+        }, ()=> {
+          qrcode: new QRCode('canvas', {
+            text: adminUrl + '?queueCode=' + res.data.result.code,
+            width: 230,
+            height: 230,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H,
+          })
+
+          console.log(111)
+          var timeOut = setTimeout(()=> {
+            that.onShow();
+          }, 1000 * 60 * res.data.result.validityPeriod)
+
+          wx.hideLoading();
         })
-
-        var timeOut = setTimeout(function () {
-          that.onReady();
-          var i = 0;
-          console.log(i++)
-        }, 1000 * 60 * 3)
-
-        wx.hideLoading();
+        
       } else {
+        that.setData({
+          flag: false,
+        })
         wx.hideLoading();
         fun.showToast(res.data.message, 'none', (success) => { })
       }
@@ -193,8 +218,33 @@ Page({
     var that = this
 
     wx.navigateTo({
-      url: '../../menwei/record/record?parkId=' + that.data.parkId,
+      url: '../../menwei/record/record?parkId=' + that.data.parkId + '&queueType=' + that.data.codeType,
     })
   },
+
+  /**
+   * 
+   * 退出登录
+   * 
+   */
+  logout () {
+    var that = this;
+    fun.showModal('温馨提示', '是否退出登录', (confirm) => {
+      fun.getData(api.api.menwei.logout, 'GET', {
+        accountId: that.data.accountId,
+      }, (res) => {
+        if (res.data.code == 200) {
+          if (res.data.result.isLogout == 1) {
+            wx.redirectTo({
+              url: '../../menwei/login/login',
+            })
+          }
+        } else {
+          fun.showToast(res.data.message, 'none', (success) => { })
+        }
+      })
+    }, (cnael) => { })
+
+  }
 
 })
