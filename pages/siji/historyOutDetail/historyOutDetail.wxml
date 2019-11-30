@@ -1,0 +1,86 @@
+<!-- pages/siji/historyOutDetail/historyOutDetail.wxml -->
+<!-- 12历史出库排队详情 -->
+<view class="container">
+  <view class="relation-form-wrap">
+    <view class="relation-title" wx:if="{{billType==2}}">关联申请单</view>
+    <view class="relation-title" wx:if="{{billType==3}}">关联运单</view>
+    <view class="relation-form" wx:for="{{result}}" wx:key="">
+      <view class="form-item">
+        <text class="form-title" wx:if="{{billType==2}}">申请单号</text>
+        <text class="form-title" wx:if="{{billType==3}}">出库单号</text>
+        <text class="form-content">{{item.billNo}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title">货主名称</text>
+        <text class="form-content">{{item.customerName}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title">联系人</text>
+        <text class="form-content">{{item.contacter}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title">联系电话</text>
+        <text class="form-content">{{item.contactPhone}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title" wx:if="{{billType==2}}">申请数量</text>
+        <text class="form-title" wx:if="{{billType==3}}">出库数量</text>
+        <text class="form-content">{{item.totalQuantity}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title" wx:if="{{billType==2}}">申请重量</text>
+        <text class="form-title" wx:if="{{billType==3}}">出库重量</text>
+        <text class="form-content">{{item.totalWeight}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title">运输费用</text>
+        <text class="form-content">{{item.transportFee}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title">调拨集团</text>
+        <text class="form-content">{{item.transferGroupName}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title">调拨仓库</text>
+        <text class="form-content">{{item.transferCompanyName}}</text>
+      </view>   
+      <view class="form-item">
+        <text class="form-title">承运单位</text>
+        <text class="form-content">{{item.carrierName}}</text>
+      </view>          
+      <view class="form-item">
+        <text class="form-title">抵运站点</text>
+        <text class="form-content">{{item.tmsSiteName}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title">发运方式</text>
+        <text class="form-content">{{item.shippingMethodName}}</text>
+      </view>
+      <view class="form-item" wx:if="{{billType==3}}">
+        <text class="form-title">运往地址</text>
+        <text class="form-content">{{item.shippingAddress}}</text>
+      </view>
+      <view class="form-item">
+        <text class="form-title" wx:if="{{billType==2}}">申请明细</text>
+        <text class="form-title" wx:if="{{billType==3}}">出库明细</text>
+        <text class="form-content" bindtap="getBillItemLi" data-billId="{{item.billId}}">
+          <text class="more">点击查看</text>
+          <text class="more-icon">></text>
+        </text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="confirm-wrap" wx:if="{{type==0}}">
+    <view class="confirm-btn">确认装车</view>
+    <view class="confirm-btn">确认送达</view>
+  </view>
+
+  <view class="confirm-wrap1" wx:if="{{type==1}}">
+    <view class="confirm-btn btn1" bindtap="btn1">确认装车</view>
+    <view class="confirm-btn btn1" bindtap="btn2">确认送达</view>
+  </view>
+
+  <view class="footer"></view>
+</view>

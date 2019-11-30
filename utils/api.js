@@ -3,7 +3,7 @@ var dev = 'http://192.168.1.77:8899';
 //var dev  = "http://yecl.lxcyhd.com";
 //var dev = 'http://192.168.1.11:8899';          //本地*/
 var pro = 'https://wms.ebiaoji.com';
-var ip = dev;
+var ip = pro;
 
 var api = {
   getOpenId: ip + '/wap/wechat/getOpenId',  //公用获取openid
