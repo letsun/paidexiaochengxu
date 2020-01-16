@@ -1,0 +1,53 @@
+<!-- pages/huozhu/hzlist/hzlist.wxml -->
+<view class="container">
+  <view class="header">
+    <view class="header-inp">
+      <input placeholder-class="placeholderStyle" placeholder="输入车牌号码/司机名称搜索" bindconfirm="search"></input>
+    </view>
+    <view class="hader-pick">搜索</view>
+  </view>
+
+  <!-- 提货委托书列表 -->
+  <view class="con"   wx:for="{{findPickupMainPageList.list}}" wx:key="">
+    <!-- <view class="con-btn1" bindtap="wtDetail" data-mainid="{{item.mainId}}">详情</view> -->
+    <!-- <view class="con-btn1"  catchtap="wtEdit" data-mainid="{{item.mainId}}">编辑</view> -->
+    <view class="con-title">{{item.pickupNo}}</view>
+    <view class="con-item">
+      <view class="con-key2">提货时间:</view>
+      <view class="con-value">{{item.pickupTime}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">提货数量:</view>
+      <view class="con-value">{{item.totalWeight}}吨</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">提货糖厂:</view>
+      <view class="con-value">{{item.companyName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">货主名称:</view>
+      <view class="con-value">{{item.customerName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">产品名称:</view>
+      <view class="con-value">{{item.productName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">产品等级:</view>
+      <view class="con-value">{{item.productLevel}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">销售分配单号:</view>
+      <view class="con-value">{{item.outAllocationNo}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">提货人名:</view>
+      <view class="con-value">{{item.name}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">提货人电话:</view>
+      <view class="con-value">{{item.phone}}</view>
+    </view>
+  </view>
+
+</view>

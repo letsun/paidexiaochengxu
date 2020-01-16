@@ -1,0 +1,42 @@
+/* pages/chuyunke/startupList/startupList.wxss */
+
+.container {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    font-size: 28rpx;
+}
+
+.con {
+    padding: 10rpx 0rpx;
+   
+}
+
+.con-item {
+    box-shadow: 0 1rpx 10rpx 5rpx #f4f4f4;
+    padding: 30rpx;
+}
+
+.item-title {
+    display: flex;
+}
+
+.title-left {
+    width: 50%;
+}
+
+.title-right {
+    width: 50%;
+    color: #999;
+}
+
+.item-text {
+    padding: 30rpx 0rpx;
+    color: #ccc;
+}
+
+.loadtext {
+  padding: 20rpx;
+  text-align: center;
+}

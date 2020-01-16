@@ -1,7 +1,41 @@
 /* pages/siji/historyOutDetail/historyOutDetail.wxss */
+
+.header {
+
+  padding:30rpx;
+  font-size: 28rpx;
+
+  background: #F2F2F2;
+}
+
+.header-item {
+  display: flex;
+
+}
+
+.header-item1 image {
+  border: 1rpx solid red;
+  height: 200rpx;
+  width: 400rpx;
+}
+
+.header-key {
+  color: #999;
+  /* display: block;
+  width: 220rpx; */
+  
+}
+
+
+
+.header-value1 {
+  text-align: center;
+}
+
+
+
 .relation-form-wrap{
-  width: 637rpx;
-  margin: 0 auto;
+  padding:30rpx;
 }
 .relation-title{
   color: #333;

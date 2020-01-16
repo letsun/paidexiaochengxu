@@ -1,0 +1,108 @@
+<!-- pages/huozhu/thfp/thfp.wxml -->
+<view class="container">
+    <view class="inp">
+        <view class="inp-item">
+            <view class="item-key">提货委托单号</view>
+            <view class="item-value">{{result.pickupNo}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货时间</view>
+            <view class="item-value">{{result.pickupTime}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货糖厂</view>
+            <view class="item-value">{{result.companyName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货仓库</view>
+            <view class="item-value">{{result.pickupAddress}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">货主名称</view>
+            <view class="item-value">{{result.customerName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货数量</view>
+            <view class="item-value">{{result.weight}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">产品名称</view>
+            <view class="item-value">{{result.productName}}</view>
+        </view>
+    </view>
+    <block wx:for="{{result.adjustList}}" wx:key="">
+        <view class="upload">
+            <view class="upload-book" bindtap="previewImage" data-index ="{{index}}">
+                <image src="{{item.images}}"></image>
+            </view>
+            <view class="upload-text">
+                <view class="text-item">
+                    <text>变更时间:</text>
+                    {{item.createDate}}
+                </view>
+                <view class="text-item">
+                    <text>审批状态:</text>
+                    {{item.status}}
+                </view>
+            </view>
+        </view>
+        <view class="con">
+            <view class="con-item">
+                <view class="con-titel">原司机信息</view>
+            </view>
+            <view class="con-item">
+                <view class="con-key">司机姓名:</view>
+                <view class="con-value">
+                    <input type="text" disabled="false" value="{{item.driverName}}" bindblur='getInputVal' />
+                </view>
+            </view>
+            <view class="con-item">
+                <view class="con-key">身份证号:</view>
+                <view class="con-value">
+                    <input type="text" disabled="false" value="{{item.idCard}}" />
+                </view>
+            </view>
+            <view class="con-item">
+                <view class="con-key">车牌号:</view>
+                <view class="con-value">
+                    <input type="text" disabled="false" value="{{item.plateNo}}" />
+                </view>
+            </view>
+            <view class="con-item">
+                <view class="con-key">联系电话:</view>
+                <view class="con-value">
+                    <input type="text" disabled="false" value="{{item.driverPhone}}" />
+                </view>
+            </view>
+        </view>
+        <view class="con">
+            <view class="con-item">
+                <view class="con-titel">新司机信息</view>
+            </view>
+            <view class="con-item">
+                <view class="con-key">司机姓名:</view>
+                <view class="con-value">
+                    <input type="text" disabled="false" value="{{item.newDriverName}}" />
+                </view>
+            </view>
+            <view class="con-item">
+                <view class="con-key">身份证号:</view>
+                <view class="con-value">
+                    <input type="text" disabled="false" value="{{item.newIdCard}}" />
+                </view>
+            </view>
+            <view class="con-item">
+                <view class="con-key">车牌号:</view>
+                <view class="con-value">
+                    <input type="text" disabled="false" value="{{item.newPlateNo}}" />
+                </view>
+            </view>
+            <view class="con-item">
+                <view class="con-key">联系电话:</view>
+                <view class="con-value">
+                    <input type="text" disabled="false" value="{{item.newDriverPhone}}" />
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

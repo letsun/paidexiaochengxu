@@ -1,0 +1,287 @@
+/* pages/menwei/situation/situation.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  margin: 0rpx 20rpx 0rpx 20rpx;
+}
+
+.header-item {
+  width: 33.3333%;
+  text-align: center;
+  position: relative;
+  font-size: 25rpx;
+  color: #888;
+  padding: 30rpx 0rpx 30rpx 0rpx;
+}
+
+.header-item-span {
+  height: 6rpx;
+  background: #fd7d00 ;
+  width: 30rpx;
+  position: absolute;
+  top: 60rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+  bottom: -10rpx;
+  transform: 2s;
+}
+
+
+.content {
+  margin: 0 25rpx 0 25rpx;
+}
+
+.content-item {
+  height: 350rpx;
+  width: 700rpx;
+
+  padding:50rpx 0rpx 30rpx 0rpx;
+  background:url(https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/paide/1_7.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.content-item-title {
+  display: flex;
+
+  font-size: 22rpx;
+  
+  padding: 0rpx 80rpx 0rpx 80rpx;
+}
+
+.content-item-title-left {
+  color: #888;
+  width: 50%;
+}
+
+.content-item-title-left text {
+  color: #fd7d00;
+}
+
+.content-item-title-right {
+  text-align: right;
+  width: 50%;
+}
+
+.content-item-con {
+    padding: 0rpx 80rpx 0rpx 80rpx;
+    display: flex;
+}
+
+.content-item-conb {
+  padding: 0rpx 80rpx 0rpx 80rpx;
+    line-height: 200rpx;
+  font-size: 90rpx;
+  font-weight: bold;
+  text-align: center;
+  /* display: none; */
+}
+
+.switch {
+  width: 10%;
+  margin: 70rpx 20rpx 0 0;
+}
+
+.content-item-con-left {
+  width: 66%;
+  line-height: 200rpx;
+  font-size: 90rpx;
+  font-weight: bold;
+}
+
+/* .content-item-con-right {
+  width: 34%
+} */
+
+.content-item-con-right-top {
+  /* color: #fff;
+  background: #ccc; */
+  background:linear-gradient(to right,#fdb900,#faa200,#f68100);
+  color:#fff;
+  border-radius: 40rpx;
+  text-align: center;
+  width: 180rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  margin-top: 40rpx;
+  letter-spacing: 2rpx;
+}
+
+.content-item-con-right-bottom {
+  color: #fd7d00;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.content-item-bottom {
+    padding: 15rpx 80rpx 0rpx 80rpx;
+    display: flex;
+    font-size: 22rpx;
+    line-height: 40rpx;
+    color: #ccc;
+}
+
+
+.content-item-bottom span {
+  color: #333;
+}
+
+.content-item-bottom-left {
+  width: 50%;
+}
+
+.content-item-bottom-right {
+  width: 50%;
+}
+
+.tfooter {
+  height: 100rpx;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+
+  font-size: 28rpx;
+
+  box-shadow: 0rpx 1rpx 10rpx 5rpx #f4f4f4;
+  background: #fff;
+}
+
+.footer-selectall {
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+
+  border: #fd7d00 1rpx solid;
+  color: #fd7d00;
+  border-radius: 40rpx;
+  padding:5rpx 10rpx;
+}
+
+.fooer-text {
+  position: absolute;
+  top: 26rpx;
+  left: 110rpx;
+}
+
+.footer-suspend {
+  position: absolute;
+  top: 20rpx;
+  left: 300rpx;
+  
+  border: #fd7d00 1rpx solid;
+  color: #fd7d00;
+  border-radius: 40rpx;
+  padding:5rpx 30rpx;
+}
+
+.footer-startup {
+  position: absolute;
+  top: 20rpx;
+  left: 440rpx;
+  
+  border: #fd7d00 1rpx solid;
+  color: #fd7d00;
+  border-radius: 40rpx;
+  padding:5rpx 30rpx;
+}
+
+.footer-notice {
+  position: absolute;
+  top: 25rpx;
+  right: 20rpx;
+}
+
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .6);
+
+}
+
+.mask-con {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  
+  border-radius: 10rpx;
+
+  background: #fff;
+}
+
+.mask-title {
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx #ddd solid;
+}
+
+.mask-text {
+  padding:0rpx 30rpx;
+}
+
+.mask-text text {
+  font-size: 28rpx;
+  padding: 10rpx 30rpx;
+  display: block;
+}
+.mask-text textarea{
+  border: 1rpx #ddd solid;
+  width: 260px;
+
+  padding: 30rpx;
+}
+
+.mask-footer {
+  display: flex;
+  font-size: 28rpx;
+  margin:20rpx 0rpx;
+}
+
+.mask-footer-item {
+  width: 50%;
+}
+
+.item-btn {
+  
+  width: 140rpx;
+  text-align: center;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  margin: auto;
+  
+}
+
+.mask-footer-item:first-child .item-btn {
+  border: 1rpx solid #ddd;
+  color: #aaa;
+  margin-right: 30rpx;
+}
+
+.mask-footer-item:last-child .item-btn {
+  border: 1rpx solid #f68100;
+  color: #f68100;
+  margin-left: 30rpx;
+}

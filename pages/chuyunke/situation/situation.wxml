@@ -1,0 +1,96 @@
+<!-- pages/menwei/situation/situation.wxml -->
+<view class="container">
+  <view class="header">
+    <view class="header-item" bindtap="btnTab" data-index='{{index}}' wx:for="{{headerarray}}" wx:key="xxx">
+      {{item}}
+      <view class="{{index==tabindex?'header-item-span':''}}"></view>
+    </view>
+  </view>
+  <!-- <radio-group bindchange="radioChange"> -->
+    <view class="content" wx:for="{{QueueEvolutionList}}" wx:key="">
+      <view class="content-item">
+        <!-- 排队序号 -->
+        <view class="content-item-title">
+          <view class="content-item-title-left" wx:if="{{tabindex!=2}}">排队序号:</view>
+          <view class="content-item-title-left" wx:if="{{tabindex==2}}">
+            排队序号:
+            <text wx:if="{{item.queueStatus==0}}">正在排队中</text>
+            <text wx:if="{{item.queueStatus==111}}">已暂停排队</text>
+          </view>
+          <view class="content-item-title-right">{{item.showTime}}</view>
+        </view>
+        <!-- 等待进场排队序号 -->
+        <view class="content-item-con">
+          <view class="switch" wx:if="{{tabindex==2}}">
+            <switch checked="{{item.isChecked}}" type="checkbox" bindchange="switchchang" data-index="{{index}}"  />
+            <!-- <radio class="" value="" checked="{{false}}" color=""></radio> -->
+          </view>
+          <view class="content-item-con-left">{{item.queueSequence}}</view>
+          <view class="content-item-con-right">
+            <view class="content-item-con-right-top" bindtap="previewImage" wx:if="{{tabindex!=1}}" data-index="{{index}}" data-pickupImage="{{item.pickupImage}}">
+              查看提货单
+            </view>
+            <view class="content-item-con-right-bottom" wx:if="{{tabindex==0}}">仓库已放行,待进场</view>
+            <view class="content-item-con-right-bottom" wx:if="{{tabindex==1}}">已完成装车,待出场</view>
+            <view class="content-item-con-right-bottom" wx:if="{{tabindex==2}}" bindtap="deletes" data-index="{{index}}" data-queueCodeRecordId="{{item.queueCodeRecordId}}" >删除</view>
+
+            <!-- <view class="content-item-con-right-top" wx:if="{{tabindex==2}}" bindtap="deletes" data-index="{{index}}" data-queueCodeRecordId="{{item.queueCodeRecordId}}" >删除</view> -->
+          </view>
+        </view>
+        <!-- 底部车牌信息 -->
+        <view class="content-item-bottom">
+          <view class="content-item-bottom-left">
+            <view>
+              车牌号码:
+              <span>{{item.plateNo}}</span>
+            </view>
+            <view>
+              司机姓名:
+              <span>{{item.driverName}}</span>
+            </view>
+          </view>
+          <view class="content-item-bottom-right">
+            <view>
+              装车地点:
+              <span>{{item.loadWhere}}</span>
+            </view>
+            <view>
+              联系电话:
+              <span>{{item.contactPhone}}</span>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  <!-- </radio-group> -->
+
+  <view class="tfooter" wx:if="{{tabindex==2}}"></view>
+  <view class="footer" wx:if="{{tabindex==2}}">
+    <!-- <view class="footer"> -->
+    <view class="footer-selectall" bindtap="selectall" >全选</view>
+    <!-- <view class="fooer-text">已选：0</view> -->
+    <view class="footer-suspend" bindtap="suspend">暂停</view>
+    <view class="footer-startup" bindtap="startup">启动</view>
+    <view class="footer-notice" bindtap="startupList">历史通知</view>
+  </view>
+
+
+  <!-- 暂停排队 -->
+  <view class="mask" wx:if="{{mask}}">
+    <view class="mask-con">
+      <view class="mask-title">暂停排队</view>
+      <view class="mask-text">
+        <text>确定要暂停当前排队吗？请编辑信息及时通知司机:</text>
+        <textarea bindinput="textchang"></textarea>
+      </view>
+      <view class="mask-footer">
+        <view class="mask-footer-item">
+          <view class="item-btn" bindtap="cancel">取消</view>
+        </view>
+        <view class="mask-footer-item">
+          <view class="item-btn" bindtap="suspends">确认发布</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

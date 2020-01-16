@@ -1,0 +1,123 @@
+/* pages/huozhu/hzlist/hzlist.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  padding: 30rpx 30rpx 0 30rpx;
+}
+
+.header-inp {
+  width: 90%;
+}
+
+.header-inp input {
+  border: 1rpx #ddd solid;
+  border-radius: 6rpx;
+  padding: 10rpx 20rpx;
+  width: 92%;
+
+  font-size: 24rpx;
+}
+
+.hader-pick {
+  width: 10%;
+  margin: auto;
+  text-align: right;
+
+  font-size: 28rpx;
+  color: #FFA459;
+}
+
+.hader-pick image {
+  height: 44rpx;
+  width: 44rpx;
+}
+
+.con {
+  border-bottom: 1rpx #ddd solid;
+  padding: 30rpx;
+  position: relative;
+}
+
+.con-title {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.con-btn1 {
+  position: absolute;
+  top: 70rpx;
+  right: 30rpx;
+  padding: 15rpx 30rpx;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  background: #f90;
+  color: #f4f4f4;
+}
+
+.con-btn2 {
+  position: absolute;
+  top: 150rpx;
+  right: 30rpx;
+  padding: 15rpx 30rpx;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  background: #f90;
+  color: #f4f4f4;
+}
+
+.con-item {
+  display: flex;
+  font-size: 26rpx;
+  padding: 5rpx 0rpx;
+}
+
+.con-key1 {
+  width: 200rpx;
+  color: #999;
+}
+
+.con-key2 {
+  width: 180rpx;
+  color: #999;
+}
+
+.con-key3 {
+  width: 130rpx;
+  color: #999;
+}
+
+.tfooter {
+  height: 100rpx;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  line-height: 100rpx;
+  background: #fff;
+  box-shadow: 0rpx 1rpx 10rpx 5rpx #ddd;
+}
+
+.footer-item {
+  width: 33.3333%;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.ater {
+  color: #f90;
+}

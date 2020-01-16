@@ -1,0 +1,49 @@
+<!-- pages/siji/personal/personal.wxml -->
+<view class="container">
+    <view class="header">
+        <view class="header-title">基本信息</view>
+        <view class="header-con">
+            <view class="header-item">
+                <view class="header-key">司机名称：</view>
+                <view class="header-value">{{result.driverName}}</view>
+            </view>
+            <view class="header-item">
+                <view class="header-key">车牌号码：</view>
+                <view class="header-value">{{result.plateNumber}}</view>
+            </view>
+            <view class="header-item">
+                <view class="header-key">联系电话：</view>
+                <view class="header-value">{{result.contactPhone}}</view>
+            </view>
+            <view class="header-item">
+                <view class="header-key">身份证号：</view>
+                <view class="header-value">{{result.idCard}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="card">
+        <view class="card-title">证件附件</view>
+        <view class="card-photo">
+            <view class="card-item">
+                <view class="card-key">身份证正面：</view>
+                <image src="{{result.idcardImage}}" data-index="1" bindtap="previewImage" />
+            </view>
+            <view class="card-item">
+                <view class="card-key">身份证反面：</view>
+                <image src="{{result.idcardUnderImage}}" data-index="2" bindtap="previewImage" />
+            </view>
+            <view class="card-item">
+                <view class="card-key">驾驶证件：</view>
+                <image src="{{result.driverImage}}" data-index="3" bindtap="previewImage"/>
+            </view>
+            <view class="card-item">
+                <view class="card-key">行驶证件：</view>
+                <image src="{{result.driverLicenseImage}}" data-index="4" bindtap="previewImage" />
+            </view>
+        </view>
+    </view>
+
+    <view class="footer"  bindtap="logout">
+        退出登录
+    </view>
+</view>

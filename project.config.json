@@ -21,7 +21,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.2",
+	"libVersion": "2.9.4",
 	"appid": "wx92ddcbce04fc34b6",
 	"projectname": "paidexiaochengxu",
 	"debugOptions": {
@@ -132,10 +132,170 @@
 					"scene": null
 				},
 				{
-					"id": 11,
-					"name": "司机入库记录详情",
-					"pathName": "pages/siji/historyEnterDetail/historyEnterDetail",
+					"id": -1,
+					"name": "货主首页",
+					"pathName": "pages/huozhu/home/home",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "货主个人中心",
+					"pathName": "pages/huozhu/personal/personal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "货主列表",
+					"pathName": "pages/huozhu/hzlist/hzlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "货主提货分配",
+					"pathName": "pages/huozhu/thfp/thfp",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "货主委托书编辑",
+					"pathName": "pages/huozhu/wtEdit/wtEdit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "货主委托书详情",
+					"pathName": "pages/huozhu/wtDetail/wtDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 18,
+					"name": "货主调度信息修改",
+					"pathName": "pages/huozhu/ddInfoEdit/ddInfoEdit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "货主提货人变更记录",
+					"pathName": "pages/huozhu/ddEditList/ddEditList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "储运科首页",
+					"pathName": "pages/chuyunke/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "储运科调度申请安排表",
+					"pathName": "pages/chuyunke/ddsqList/ddsqList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "储运科当前排队",
+					"pathName": "pages/chuyunke/situation/situation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 23,
+					"name": "储运排队申请列表",
+					"pathName": "pages/chuyunke/pdsqList/pdsqList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "储运科申请编辑",
+					"pathName": "pages/chuyunke/pdsqEdit/pdsqEdit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "储运科历史纪录",
+					"pathName": "pages/chuyunke/pdHistory/pdHistory",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "储运科历史排队记录",
+					"pathName": "pages/chuyunke/pdHistory/pdHistory",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "储运科通知列表",
+					"pathName": "pages/chuyunke/startupList/startupList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "储运科提货人变更列表",
+					"pathName": "pages/chuyunke/personList/personList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "司机申请排队页面",
+					"pathName": "pages/siji/lineup/lineup",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "司机个人中心",
+					"pathName": "pages/siji/personal/personal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "储运科排队申请已审核",
+					"pathName": "pages/chuyunke/pdsqDetail/pdsqDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "司机选择委托书列表",
+					"pathName": "pages/siji/wtList/wtList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "储运科司机变更审核",
+					"pathName": "pages/chuyunke/ddInfoEdit/ddInfoEdit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "储运科历史通知",
+					"pathName": "pages/chuyunke/startupList/startupList",
 					"scene": null
 				}
 			]

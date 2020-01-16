@@ -1,0 +1,80 @@
+/* pages/huozhu/personal/personal.wxss */
+
+page {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    padding: 30rpx 0;
+    text-align: center;
+}
+
+.header image {
+    max-height: 250rpx;
+    max-width: 250rpx;
+    /* border: yellowgreen 1rpx solid; */
+}
+
+.header-upload {
+    font-size: 26rpx;
+}
+
+
+.inp {
+    padding-top: 20rpx;
+    margin: 0rpx 20rpx;
+    font-size: 26rpx;
+}
+
+.inp-item {
+    display: flex;
+    
+    border-top:#ddd 2rpx solid;
+    border-left:#ddd 1rpx solid;
+    border-right:#ddd 1rpx solid;
+    /* border-bottom: transparent 1rpx solid; */
+}
+
+.inp-item:last-child {
+    border-bottom: 2rpx #ddd solid;
+}
+
+.item-key {
+    width: 200rpx; 
+    text-align: center;
+    padding: 20rpx 0rpx;
+
+    background: #F4F4F4;
+}
+
+.item-value {
+    width: 500rpx;
+}
+
+.item-value input {
+    padding: 20rpx;
+}
+
+
+.footer {
+    margin-top: 100rpx;
+    text-align: center;
+}
+
+.footer-btn {
+    display: inline-block;
+    padding: 15rpx 60rpx;
+    border-radius: 40rpx;
+    letter-spacing: 5rpx;
+
+    color: #f4f4f4;
+    background: #FF6600;
+}

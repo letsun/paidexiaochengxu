@@ -1,0 +1,170 @@
+<!-- pages/siji/lineup/lineup.wxml -->
+<view class="container">
+  <form bindsubmit="submitQueueApply">
+
+    <!-- <view class="begin-rank" bindtap="saoma">扫码</view> -->
+    <view class="con">
+      <view class="con-item">
+        <view class="item-left">
+          司机名称：
+          <input type="text" name="driverName" value="{{result.driverName}}" />
+        </view>
+        <view class="item-right">
+          车牌号码：
+          <input type="text" name="plateNumber" value="{{result.plateNumber}}" bindinput="plateNo" />
+        </view>
+        <view class="item-btn" bindtap="getDriverPickupCommission" wx:if="{{!checked}}">查询</view>
+      </view>
+      <view class="con-item">
+        <view class="item-key">提货委托：</view>
+        <view class="item-value">
+          <!-- <input disabled="false" bindtap="wtList" placeholder="选择委托单号" + 'createTime' + 'pickupWeight' /> -->
+          <!-- <picker value="{{index}}" range="{{pickupNoList}}" range-key="customerName" bindchange="pickchang" bindcancel=""> -->
+          <picker value="{{index}}" range="{{pickupNoLista}}" range-key="key" bindchange="pickchang" bindcancel="">
+            <!-- 选择委托单号 -->
+            <!-- {{pickupNoList[index].customerName}}  -->
+            {{pickupNoLista[index].key}}
+          </picker>
+        </view>
+      </view>
+      <view class="con-item">
+        <view class="item-key">行驶证号：</view>
+        <view class="item-value">
+          <input type="text" name="driverLicense" value="{{result.driverLicense}}" />
+        </view>
+      </view>
+      <view class="con-item">
+        <view class="item-key">联系电话：</view>
+        <view class="item-value">
+          <input type="text" name="contactPhone" value="{{result.contactPhone}}" />
+        </view>
+      </view>
+      <view class="con-item">
+        <view class="item-key">身份证号：</view>
+        <view class="item-value">
+          <input type="text" name="idCard" value="{{result.idCard}}" />
+        </view>
+      </view>
+    </view>
+    <view class="upload">
+      <view class="upload-item">
+        <view class="upload-key">身份证件正面：</view>
+        <view class="upload-value" wx:if="{{idcardImage==''||idcardImage==null}}" data-index="1" bindtap="chooseImage">
+          +
+        </view>
+        <view class="upload-img" wx:else>
+          <image src="{{idcardImage}}" />
+
+          <view class="upload-mask">
+            <view class="upload-previewImage" bindtap="previewImage" data-index="1">预览</view>
+            <view class="upload-delect" bindtap="chooseImage" data-index="1">修改</view>
+          </view>
+
+        </view>
+      </view>
+      <view class="upload-item">
+        <view class="upload-key">身份证件反面：</view>
+        <view class="upload-value" wx:if="{{idcardImageUnder==''||idcardImageUnder==null}}" data-index="2" bindtap="chooseImage">+</view>
+        <view class="upload-img" wx:else>
+          <image src="{{idcardImageUnder}}" />
+
+          <view class="upload-mask">
+            <view class="upload-previewImage" bindtap="previewImage" data-index="2">预览</view>
+            <view class="upload-delect" bindtap="chooseImage" data-index="2">修改</view>
+          </view>
+        </view>
+      </view>
+      <view class="upload-item">
+        <view class="upload-key">驾驶证件：</view>
+        <view class="upload-value" wx:if="{{driverImage==''||driverImage==null}}" data-index="3" bindtap="chooseImage">+</view>
+        <view class="upload-img" wx:else>
+          <image src="{{driverImage}}" />
+
+          <view class="upload-mask">
+            <view class="upload-previewImage" bindtap="previewImage" data-index="3">预览</view>
+            <view class="upload-delect" bindtap="chooseImage" data-index="3">修改</view>
+          </view>
+        </view>
+      </view>
+      <view class="upload-item">
+        <view class="upload-key">行驶证件：</view>
+        <view class="upload-value" wx:if="{{driverLicenseImage==''||driverLicenseImage==null}}" data-index="4" bindtap="chooseImage">+</view>
+        <view class="upload-img" wx:else>
+          <image src="{{driverLicenseImage}}" />
+
+          <view class="upload-mask">
+            <view class="upload-previewImage" bindtap="previewImage" data-index="4">预览</view>
+            <view class="upload-delect" bindtap="chooseImage" data-index="4">修改</view>
+          </view>
+        </view>
+      </view>
+      <view class="upload-item">
+        <view class="upload-key">提货人为理货员：</view>
+        <view class="upload-value1">
+          <switch type="checkbox" checked="{{false}}" bindchange="checkbtn"></switch>
+        </view>
+      </view>
+    </view>
+    <view class="con" wx:if="{{checked}}">
+      <view class="con-item">
+        <view class="item-left">
+          理货人名：
+          <input type="text" bindinput="name" name="tname" value="{{pickupVoList.name}}" />
+        </view>
+        <view class="item-right">
+          联系电话：
+          <input type="text" bindinput="phone" name="tphone" value="{{pickupVoList.phone}}" />
+        </view>
+        <view class="item-btn" bindtap="getDallyCommissionPickup">查询</view>
+      </view>
+      <view class="con-item">
+        <view class="item-key">身份证号：</view>
+        <view class="item-value">
+          <input type="text" name="tidCard" value="{{pickupVoList.idcard}}" />
+        </view>
+      </view>
+      <view class="con-item">
+        <view class="item-left">
+          未提数量(吨)：
+          <input type="text" disabled="flase" value="{{pickupVoList.pickupVoList[index].pickupWeight}}" />
+        </view>
+        <view class="item-right">
+          数量(吨)：
+          <input type="text" name="pickupWeight" value="" />
+        </view>
+      </view>
+      <view class="con-item">
+        <view class="item-left1">
+          <view class="item-key">身份证正面：</view>
+          <view class="item-value1" wx:if="{{tidcardImage==''||tidcardImage==null}}" data-index="5" bindtap="chooseImage">+</view>
+
+          <view class="item-value1" wx:else>
+            <image src="{{tidcardImage}}" ></image>
+
+            <view class="upload-mask1 ">
+              <view class="upload-previewImage1" bindtap="previewImage" data-index="5">预览</view>
+              <view class="upload-delect1" bindtap="chooseImage" data-index="5">修改</view>
+            </view>
+          </view>
+        </view>
+        <view class="item-right1">
+          <view class="item-key">身份证反面：</view>
+          <view class="item-value1" wx:if="{{tidcardUnderImage==''||tidcardUnderImage==null}}" data-index="6" bindtap="chooseImage">+</view>
+
+          <view class="item-value1" wx:else>
+            <image src="{{tidcardUnderImage}}" ></image>
+            <view class="upload-mask1">
+              <view class="upload-previewImage1" bindtap="previewImage" data-index="6">预览</view>
+              <view class="upload-delect1" bindtap="chooseImage" data-index="6">修改</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="tfooter"></view>
+    <view class="footer">
+      <button form-type="submit">申请排队</button>
+    </view>
+
+  </form>
+</view>

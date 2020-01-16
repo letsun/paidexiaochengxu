@@ -1,0 +1,152 @@
+<!-- pages/chuyunke/pdsqEdit/pdsqEdit.wxml -->
+<view class="container">
+  <view class="header">
+    <view class="header-item">
+      <view class="header-left">
+        <text class="">申请时间：</text>
+        <span>{{result.applyTime}}</span>
+      </view>
+    </view>
+    <view class="header-item">
+      <view class="header-left">
+        <text class="">司机姓名：</text>
+        <span>{{result.pickupDriver.name}}</span>
+        <span wx:if="{{result.takeType==0}}">(提货人)</span>
+        <span wx:if="{{result.takeType==1}}">(理货员)</span>
+      </view>
+      <view class="header-right">
+        <text class="">车牌号码：</text>
+        <span>{{result.pickupDriver.plateNumber}}</span>
+      </view>
+    </view>
+    <view class="header-item">
+      <view class="header-left">
+        <text class="">提货委托：</text>
+        <span>{{result.orderNo}}</span>
+      </view>
+    </view>
+    <view class="header-item">
+      <view class="header-left">
+        <text class="">联系电话：</text>
+        <span>{{result.pickupDriver.mobile}}</span>
+      </view>
+    </view>
+    <view class="header-item">
+      <view class="header-left">
+        <text class="">身份证号：</text>
+        <span>{{result.pickupDriver.idcard}}</span>
+      </view>
+    </view>
+    <view class="header-item">
+      <view class="header-left">
+        <text class="">行驶证号：</text>
+        <span>{{result.pickupDriver.driverLicense}}</span>
+      </view>
+    </view>
+  </view>
+  <view class="card">
+    <view class="card-item">
+      <view class="card-title">身份证正面：</view>
+      <view class="card-phone">
+        <image src="{{result.pickupDriver.images.idcard}}" bindtap="previewImage" data-imgsrc="{{result.pickupDriver.images.idcard}}" />
+      </view>
+    </view>
+    <view class="card-item">
+      <view class="card-title">身份证反面：</view>
+      <view class="card-phone">
+        <image src="{{result.pickupDriver.images.idcardunder}}" bindtap="previewImage" data-imgsrc="{{result.pickupDriver.images.idcardunder}}"  />
+      </view>
+    </view>
+    <view class="card-item">
+      <view class="card-title">驾驶证件：</view>
+      <view class="card-phone">
+        <image src="{{result.pickupDriver.images.driver}}" bindtap="previewImage" data-imgsrc="{{result.pickupDriver.images.driver}}"  />
+      </view>
+    </view>
+    <view class="card-item">
+      <view class="card-title">行驶证件：</view>
+      <view class="card-phone">
+        <image src="{{result.pickupDriver.images.license}}" bindtap="previewImage" data-imgsrc="{{result.pickupDriver.images.license}}"  />
+      </view>
+    </view>
+  </view>
+
+
+  <view class="con" wx:if="{{result.takeType==1}}">
+    <view class="con-title">提货人为理货员：</view>
+    <view class="con-item">
+      <view class="con-left">
+        <view class="con-key">理货员名称：</view>
+        <view class="con-value">{{result.pickupTally.name}}</view>
+      </view>
+      <view class="con-right">
+        <view class="con-key">联系电话：</view>
+        <view class="con-value">{{result.pickupTally.mobile}}</view>
+      </view>
+    </view>
+    <view class="con-item">
+
+      <view class="con-key">身份证号码：</view>
+      <view class="con-value">{{result.pickupTally.idcard}}</view>
+
+    </view>
+    <view class="con-item">
+      <view class="con-left">
+        <view class="con-key">提货重量(吨)：</view>
+        <view class="con-value">{{result.pickupTally.takeWeight}}</view>
+      </view>
+    </view>
+    <view class="con-item">
+      <view class="con-left">
+        <view class="con-key">身份证正面：</view>
+        <view class="con-value">
+          <image src="{{result.pickupTally.images.idcard}}" bindtap="previewImage" data-imgsrc="{{result.pickupTally.images.idcard}}" />
+        </view>
+      </view>
+      <view class="con-right">
+        <view class="con-key">身份证反面：</view>
+        <view class="con-value">
+          <image src="{{result.pickupTally.images.idcardunder}}" bindtap="previewImage" data-imgsrc="{{result.pickupTally.images.idcardunder}}" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="upload">
+    <view class="upload-title">上传提货单：</view>
+    <view class="upload-img">
+      <view bindtap="chooseImage" wx:if="{{images==''||images==undefined}}">+</view>
+      <view class="upload-imga" wx:else>
+        <image src="{{images}}"  />
+
+        <view class="upload-mask">
+          <view class="upload-previewImage" bindtap="previewImage" data-imgsrc="{{images}}" data-index="1">预览</view>
+          <view class="upload-delect" bindtap="chooseImage" data-index="1">修改</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="tfooter"></view>
+  <view class="footer">
+    <view class="footer-item" bindtap="footerbtn" data-status="2">驳回</view>
+    <view class="footer-item" bindtap="footerbtn" data-status="1">同意</view>
+  </view>
+
+  <!-- 审核意见 -->
+  <view class="mask" wx:if="{{mask}}">
+    <view class="mask-con">
+      <view class="mask-title">审核意见</view>
+      <view class="mask-text">
+        <!-- <text>确定要暂停当前排队吗？请编辑信息及时通知司机:</text> -->
+        <textarea bindinput="textchang"></textarea>
+      </view>
+      <view class="mask-footer">
+        <view class="mask-footer-item">
+          <view class="item-btn" bindtap="cancel">取消</view>
+        </view>
+        <view class="mask-footer-item">
+          <view class="item-btn" bindtap="updateDriverRecordStatus">确定</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

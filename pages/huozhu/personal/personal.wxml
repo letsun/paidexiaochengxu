@@ -1,0 +1,48 @@
+<!-- pages/huozhu/personal/personal.wxml -->
+<view class="container">
+    <view class="header">
+        <image src="{{result.photo}}" />
+        <!-- <view class="header-upload">点击上传图片</view> -->
+    </view>
+    <view class="inp">
+        <view class="inp-item">
+            <view class="item-key">姓名</view>
+            <view class="item-value">
+                <input type="text" disabled="{{true}}" value="{{result.name}}" />
+            </view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">身份证号</view>
+            <view class="item-value">
+                <input type="idcard" disabled="{{true}}" value="{{result.idCard}}"  />
+            </view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">联系电话</view>
+            <view class="item-value">
+                <input type="text" disabled="{{true}}" value="{{result.phone}}"   />
+            </view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">邮箱地址</view>
+            <view class="item-value">
+                <input type="text" disabled="{{true}}" value="{{result.email}}"  />
+            </view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">公司名称</view>
+            <view class="item-value">
+                <input type="text" disabled="{{true}}" value="{{result.companyName}}"  />
+            </view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">公司地址</view>
+            <view class="item-value">
+                <input type="text" disabled="{{true}}" value="{{result.companyAddress}}" placeholder="请输入公司地址" />
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="footer-btn" bindtap="logout" >退出登录</view>
+    </view>
+</view>

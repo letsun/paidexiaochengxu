@@ -15,6 +15,9 @@ App({
 
   globalData: {
     
+    accountId:'',
+    openid: '',
+    unionid: '',
 
   },
 

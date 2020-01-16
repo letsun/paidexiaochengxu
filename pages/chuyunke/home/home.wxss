@@ -1,0 +1,107 @@
+/* pages/chuyunke/home/home.wxss */
+page {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.cona {
+    padding-top: 30rpx;
+}
+
+.con {
+
+    margin:0rpx 30rpx;
+    border-radius: 10rpx;
+    font-size: 30rpx;
+
+    box-shadow: 0rpx 0rpx 10rpx 5rpx #ddd;
+}
+
+.con-title {
+    position: relative;
+    line-height: 80rpx;
+    padding: 0rpx 30rpx;
+    text-align: right;
+
+    border-bottom: 1rpx solid #f4f4f4;
+}
+
+.logout {
+  position: absolute;
+
+  left: 30rpx;
+  
+}
+
+
+.con-con {
+    padding: 30rpx;
+    font-size: 28rpx;
+}
+
+.con-item {
+    position: relative;
+    display: flex;
+
+    padding: 10rpx 0rpx;
+}
+
+.item-left {
+    display: flex;
+}
+
+.item-left input {
+    border: 1rpx #f4f4f4 solid;
+    width: 150rpx;
+    margin:  0rpx 20rpx;
+}
+
+.item-left span {
+    color: sandybrown;
+}
+
+
+
+.item-right {
+    position: absolute;
+    right: 60rpx;
+
+    display: flex;
+}
+
+.item-key {
+    color: #999;
+}
+
+.footer {
+    display: flex;
+    flex-flow: wrap;
+    margin-top: 60rpx;
+    font-size: 30rpx;
+}
+
+.footer-item {
+    width: 33.3333%;
+    text-align: center;
+    padding: 30rpx 0rpx;
+}
+
+.footer-item image {
+    max-width: 50rpx;
+    max-height: 50rpx;
+    display: block;
+
+    margin: auto;
+    padding-bottom: 20rpx;
+}
+
+
+
+

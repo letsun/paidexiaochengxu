@@ -3,7 +3,7 @@ var api = require("../../../utils/api.js");
 var fun = require("../../../utils/function.js");
 Page({
   data: {
-    qrcode:'',
+    //qrcode: '',
     isKeyboard: !1,
     isNumberKB: !1,
     tapNum: !1,
@@ -40,29 +40,47 @@ Page({
   onLoad: function(options) {
     var that = this;
     console.log(options)
-    var q = decodeURIComponent(options.q);
+    // var q = decodeURIComponent(options.q);
+    // that.setData({
+    //   openid: options.openId
+    // })
+    // if (q != 'undefined') {
+    //   var urlList = q.split('=');
+    //   var qrcode = urlList[urlList.length - 1];
+    //   console.log(urlList)
+    //   console.log(qrcode)
+    //   that.setData({
+    //     qrcode: qrcode,
+    //   })
+
+
+    //   fun.getopenid(res => {
+    //     that.setData({
+    //       openid: res
+    //     })
+
+    //     that.validateCode()//校验排队二维码
+    //     //that.getDriverByOpenId()
+    //   })
+    // }
+
+    //if (options.type == 1) {
     that.setData({
-      openid: options.openId
+      qrcode: options.qrcode,
+      uoid: options.uoid
     })
-    if (q != 'undefined') {
-      var urlList = q.split('=');
-      var qrcode = urlList[urlList.length - 1];
-      console.log(urlList)
-      console.log(qrcode)
-      that.setData({
-        qrcode: qrcode,
-      })
 
+    // fun.getopenid(res => {
+    //   that.setData({
+    //     openid: res
+    //   })
 
-      fun.getopenid(res => {
-        that.setData({
-          openid: res
-        })
+    that.validateCode() //校验排队二维码
 
-        that.validateCode()//校验排队二维码
-        //that.getDriverByOpenId()
-      })
-    }
+    // })
+    // }else {
+    //   that.validateCode()//校验排队二维码
+    // }
 
   },
 
@@ -72,20 +90,11 @@ Page({
    */
   onShow: function() {
 
-    var that = this;
-    if(that.data.qrcode==''){
-      that.validateCode()//校验排队二维码
-    }
-   
-    //openid
-    // fun.getopenid(res => {
-    //   that.setData({
-    //     openid: res
-    //   })
+    // var that = this;
+    // if (that.data.qrcode == '') {
 
-    //   that.validateCode()//校验排队二维码
-    //   //that.getDriverByOpenId()
-    // })
+    // }
+
   },
 
   //切换车牌
@@ -343,14 +352,14 @@ Page({
 
     var that = this;
     if (that.data.checkResult == 1) {
-      fun.showToast(that.data.checkMsg, 'none', (success) => { })
+      fun.showToast(that.data.checkMsg, 'none', (success) => {})
       return false;
-      
+
     } else if (that.data.checkResult == 2) {
-      fun.showToast(that.data.checkMsg, 'none', (success) => { })
+      fun.showToast(that.data.checkMsg, 'none', (success) => {})
       return false;
     } else if (that.data.checkResult == 3) {
-      fun.showToast(that.data.checkMsg, 'none', (success) => { })
+      fun.showToast(that.data.checkMsg, 'none', (success) => {})
       return false;
     } else if (that.data.checkResult == 4) {
       wx.redirectTo({
@@ -369,7 +378,7 @@ Page({
           });
           that.createQqueueUpInfo()
         } else {
-          fun.showToast(res.data.message, 'none', (success) => { })
+          fun.showToast(res.data.message, 'none', (success) => {})
         }
       })
     }
@@ -381,28 +390,28 @@ Page({
 
   /**
    * 
-   * 校验排队二维码 1:二维码不存在 2：二维码已失效 3：码已被扫 4：已经在排队中 5：正常： 6:排队完进入司机历史记录页面 7第二次扫码进来创建排队单号
+   * 校验排队二维码 1:二维码不存在 2：二维码已失效 3：码已被扫 4：已经在排队中 5：正常： 6:排队完进入司机首页面 7第二次扫码进来创建排队单号
    * 
    */
 
   validateCode() {
     var that = this;
-    fun.getData(api.api.siji.validateCode,'GET',{
+    fun.getData(api.api.siji.validateCode, 'GET', {
       openId: that.data.openid,
       ecode: that.data.qrcode,
-    },(res)=>{     
+    }, (res) => {
       that.setData({
         checkResult: res.data.result.checkResult,
         checkMsg: res.data.result.checkMsg
       })
-      
-      if (res.data.result.checkResult ==1) {
+
+      if (res.data.result.checkResult == 1) {
         fun.showToast(res.data.result.checkMsg, 'none', (success) => {})
       } else if (res.data.result.checkResult == 2) {
         fun.showToast(res.data.result.checkMsg, 'none', (success) => {})
-      } else if ( res.data.result.checkResult ==3) {
-        fun.showToast(res.data.result.checkMsg,'none',(success)=>{})
-      } else if (res.data.result.checkResult==4){
+      } else if (res.data.result.checkResult == 3) {
+        fun.showToast(res.data.result.checkMsg, 'none', (success) => {})
+      } else if (res.data.result.checkResult == 4) {
         wx.redirectTo({
           url: '../../siji/outhousing/outhousing?queueType=' + res.data.result.codeType + '&driverId=' + res.data.result.driverId,
         })
@@ -410,7 +419,7 @@ Page({
         wx.redirectTo({
           url: '../../siji/outhousing/outhousing?queueType=' + res.data.result.codeType + '&driverId=' + res.data.result.driverId,
         })
-      } else if ( res.data.result.checkResult == 7) {
+      } else if (res.data.result.checkResult == 7) {
         that.setData({
           driverId: res.data.result.driverId,
         })
@@ -430,10 +439,11 @@ Page({
       //code: "XqAGW94CVT",  //rWo4aqRjAl
       code: that.data.qrcode, //rWo4aqRjAl
       driverId: that.data.driverId,
+
+      openid: that.data.uoid.openid,
+      unionid: that.data.uoid.unionid,
     }, (res) => {
-
-
-      if (res.data.code == 200 ) {
+      if (res.data.code == 200) {
         if (res.data.message != '') {
           fun.showToast(res.data.message, 'none', (success) => {})
         }
@@ -460,30 +470,30 @@ Page({
    * 点击扫码
    * 
    */
-  saoma() {
-    var that = this;
-    //扫描二维码
-    wx.scanCode({
-      // onlyFromCamera: true,
-      // scanType:'qrCode',
-      success: (res) => {
-        var urlList = res.result.split('=');
-        var qrcode = urlList[urlList.length - 1];
-        that.setData({
-          qrcode: qrcode,
-        })
-        fun.getopenid(res => {
-          that.setData({
-            openid: res
-          })
+  // saoma() {
+  //   var that = this;
+  //   //扫描二维码
+  //   wx.scanCode({
+  //     // onlyFromCamera: true,
+  //     // scanType:'qrCode',
+  //     success: (res) => {
+  //       var urlList = res.result.split('=');
+  //       var qrcode = urlList[urlList.length - 1];
+  //       that.setData({
+  //         qrcode: qrcode,
+  //       })
+  //       fun.getopenid(res => {
+  //         that.setData({
+  //           openid: res
+  //         })
 
-          that.validateCode()//校验排队二维码
-          //that.getDriverByOpenId()
-        })
-        
-      }
-    })
-  }
+  //         that.validateCode() //校验排队二维码
+  //         //that.getDriverByOpenId()
+  //       })
+
+  //     }
+  //   })
+  // }
 
 
 })

@@ -1,0 +1,100 @@
+<!-- pages/huozhu/thfp/thfp.wxml -->
+<view class="container">
+    <view class="inp">
+        <view class="inp-item">
+            <view class="item-key">销售分配单</view>
+            <view class="item-value">{{result.allocationNo}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货总数</view>
+            <view class="item-value">{{result.totalWeight}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">已分配数量</view>
+            <view class="item-value">{{result.pickupWeigth}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货委托单号</view>
+            <view class="item-value">{{result.pickupNo}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货时间</view>
+            <view class="item-value">{{result.allocationTime}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">合同编号</view>
+            <view class="item-value">{{result.salesContractNo}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">货主名称</view>
+            <view class="item-value">{{result.customerName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货糖厂</view>
+            <view class="item-value">{{result.companyName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">产品名称</view>
+            <view class="item-value">{{result.productName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">产品等级</view>
+            <view class="item-value">{{result.productLevel}}</view>
+        </view>
+    </view>
+    <view class="upload">
+        <view class="upload-book" bindtap="chooseImage" wx:if="{{images==''||images==undefined}}">
+            <view class="book-text">纸质提货委托书上传</view>
+        </view>
+        <view class="upload-book" wx:else>
+            <image src="{{images}}" />
+            <view class="upload-mask">
+                <view class="upload-previewImage" bindtap="previewImage">预览</view>
+                <view class="upload-delect" bindtap="chooseImage">修改</view>
+            </view>
+        </view>
+        <view class="add-info" bindtap="addInput">增加提货人</view>
+    </view>
+    <view class="con" wx:for="{{pickupItemList}}"  wx:key="">
+        <view class="con-item">
+            <view class="con-key">提货人:</view>
+            <view class="con-value">
+                <switch  checked="{{false}}" type="checkbox" data-index="{{index}}" bindchange="tallyFlag">是否为理货人</switch>
+            </view>
+            <view class="con-close" bindtap='delInput' data-index='{{index}}'>X</view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">提货人名:</view>
+            <view class="con-value">
+                <input type="text" data-index="{{index}}" value="{{item.name}}"   bindinput='getName'/>
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">身份证号:</view>
+            <view class="con-value">
+                <input type="idcard" data-index="{{index}}" value="{{item.idCard}}"  bindinput="getidCard" />
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">车牌号:</view>
+            <view class="con-value">
+                <input type="text" data-index="{{index}}" value="{{item.plateNo}}" bindinput="getplateNo"/>
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">联系电话:</view>
+            <view class="con-value">
+                <input type="text" data-index="{{index}}" value="{{item.phone}}" bindinput="getphone"/>
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">提货数量:</view>
+            <view class="con-value">
+                <input type="digit" data-index="{{index}}" value="{{item.weight}}" bindinput="getweight"/>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="footer-btn" bindtap="btn">提交审核</view>
+    </view>
+</view>

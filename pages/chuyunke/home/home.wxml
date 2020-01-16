@@ -1,0 +1,82 @@
+<!-- pages/chuyunke/home/home.wxml -->
+
+<view class="container">
+    <view class="cona">
+        <view class="con">
+
+
+            <view class="con-title">                        
+              <view class="logout" bindtap="logout">
+                退出登录
+              </view>
+            
+            日期：{{result.produceTime}}</view>
+            <view class="con-con">
+                <view class="con-item">
+                    <view class="item-left">
+                        <view class="item-key">产量(吨)：</view>
+                        <input type="number" value="{{result.realProduceWeight}}" bindblur="inputchang" />
+                        <!-- <span>修改</span> -->
+                    </view>
+                    <view class="item-right"></view>
+                </view>
+                <view class="con-item">
+                    <view class="item-left">
+                        <view class="item-key">当前排队(车)：</view>
+                        <view class="item-value">{{result.queueNum}}</view>
+                    </view>
+                    <view class="item-right">
+                        <view class="item-key">预约排队(单数)：</view>
+                        <view class="item-value">{{result.waitNum}}</view>
+                    </view>
+                </view>
+                <view class="con-item">
+                    <view class="item-left">
+                        <view class="item-key">已提货(吨)：</view>
+                        <view class="item-value">{{result.waitOnWeight}}</view>
+                    </view>
+                    <view class="item-right">
+                        <view class="item-key">预约提货(吨)：</view>
+                        <view class="item-value">{{result.waitWeight}}</view>
+                    </view>
+                </view>
+                <view class="con-item">
+                    <view class="item-left">
+                        <view class="item-key">预约未提货(吨)：</view>
+                        <view class="item-value">{{result.waitUnWeight}}</view>
+                    </view>
+
+                </view>
+            </view>
+        </view>
+
+
+    </view>
+    <view class="footer">
+        <view class="footer-item" bindtap="ddsqList" >
+            <image src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/paide/1_13.png"  />
+            <text>调度申请</text>
+        </view>
+        <view class="footer-item" bindtap="personList">
+            <image src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/paide/1_12.png"  />
+            <text>提货人变更</text>
+        </view>
+        <view class="footer-item" bindtap="pdsqList" >
+            <image src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/paide/1_11.png"  />
+            <text>司机申请</text>
+        </view>
+        <view class="footer-item" bindtap="situation" data-tabindex = "0" >
+            <image src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/paide/1_10.png"  />
+            <text>当前排队</text>
+        </view>
+        <view class="footer-item" bindtap="situation" data-tabindex = "2">
+            <image src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/paide/1_15.png"  />
+            <text>暂停排队</text>
+        </view> 
+        <view class="footer-item" bindtap="pdHistory">
+            <image src="https://qdwzvue-1254182596.cos.ap-guangzhou.myqcloud.com/qdwzAct/paide/1_16.png"  />
+            <text>历史排队</text>
+        </view>
+    </view>
+</view>
+

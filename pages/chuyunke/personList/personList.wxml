@@ -1,0 +1,30 @@
+<!-- pages/chuyunke/personList/personList.wxml -->
+<view class="container">
+    <view class="header">
+        <view class="header-inp">
+            <input />
+        </view>
+        <view class="header-search">搜索</view>
+    </view>
+    <view class="con" wx:for="{{list}}" wx:key="">
+        <view class="con-item">
+            <view class="item-key">提货委托单号：</view>
+            <view class="item-value">{{item.orderNo}}</view>
+        </view>
+        <view class="con-item">
+            <view class="item-key">申请时间：</view>
+            <view class="item-value">{{item.produceTime}}</view>
+        </view>
+        <view class="con-item">
+            <view class="item-key">申请货主：</view>
+            <view class="item-value">{{item.customerName}}</view>
+        </view>
+        <view class="con-status status2" wx:if="{{item.status==0}}" >待审核</view>
+        <view class="con-status status1" wx:if="{{item.status!=0}}">已审核</view>
+
+        <view class="con-audit" bindtap="ddInfoEdit" wx:if="{{item.status==0}}" data-parkupAdjustId="{{item.pickupAdjustId}}" >审核</view>
+    </view>
+
+  <view class="loadText" wx:if = "{{loadText}}" >没有更多数据了</view>
+   <view class="loadText" wx:else>上拉加载更多</view>
+</view>

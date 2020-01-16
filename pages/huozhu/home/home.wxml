@@ -1,0 +1,99 @@
+<!-- pages/huozhu/home/home.wxml -->
+<view class="container">
+    <view class="header">
+        <view class="header-photo">
+            <image src="{{result.photo}}" />
+        </view>
+        <view class="header-text">
+            <view class="header-name">hI!{{result.name}}</view>
+            <view class="header-company">
+                <view>{{result.companyName}}</view>
+                <view>欢迎使用派得科技智慧园区管理平台</view>
+            </view>
+        </view>
+        <view class="header-personal" bindtap="personal">个人中心</view>
+    </view>
+    <view class="todo">
+        <view class="todo-title">今日待办</view>
+        <view class="todo-con">
+            <view class="todo-text">
+                <view class="text-item">
+                    <text>销售分配单:</text>
+                    {{result.outAllocationCount}}
+                </view>
+                <view class="text-item">
+                    <text>委托书审批:</text>
+                    {{result.pickupMainCount}}
+                </view>
+                <view class="text-item">
+                    <text>调度信息:</text>
+                    {{result.pickupItemCount}}
+                </view>
+                <view class="text-item">
+                    <text>变更提货人申请:</text>
+                    {{result.pickupAdjustCount}}
+                </view>
+            </view>
+            <view class="todo-btn">
+                <view class="btn-item" bindtap="listbtn" data-index="{{0}}">销售分配列表</view>
+                <view class="btn-item" bindtap="listbtn" data-index="{{1}}">提货委托列表</view>
+                <view class="btn-item" bindtap="listbtn" data-index="{{2}}">调度信息列表</view>
+            </view>
+        </view>
+    </view>
+    <view class="data">
+        <view class="data-title">今日数据统计</view>
+        <view class="data-con">
+            <view class="item-con">
+                <view class="con-bills">
+                    未调度单据:
+                    <text>{{result.pickupNotCount}}</text>
+                </view>
+                <view class="con-quantity">
+                    未调度数量:
+                    <text>{{result.pickupNotWeight}}吨</text>
+                </view>
+            </view>
+            <view class="item-con">
+                <view class="con-bills">
+                    已调度单据:
+                    <text>{{result.pickupAlreadCount}}</text>
+                </view>
+                <view class="con-quantity">
+                    已调度数量:
+                    <text>{{result.pickupAlreadWeight}}吨</text>
+                </view>
+            </view>
+            <view class="item-con">
+                <view class="con-bills">
+                    提货申请中:
+                    <text>{{result.pickupApplyCount}}</text>
+                </view>
+                <view class="con-quantity">
+                    申请中数量:
+                    <text>{{result.pickupApplyWeight}}吨</text>
+                </view>
+            </view>
+            <view class="item-con">
+                <view class="con-bills">
+                    提货中单据:
+                    <text>{{result.pickupIngCount}}</text>
+                </view>
+                <view class="con-quantity">
+                    提货中数量:
+                    <text>{{result.pickupIngWeight}}吨</text>
+                </view>
+            </view>
+            <view class="item-con">
+                <view class="con-bills">
+                    已提货单据:
+                    <text>{{result.pickupEndCount}}</text>
+                </view>
+                <view class="con-quantity">
+                    已提货数量:
+                    <text>{{result.pickupEndWeight}}吨</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

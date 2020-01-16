@@ -1,0 +1,120 @@
+/* pages/menwei/record/record.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  padding: 30rpx 30rpx 0 30rpx;
+}
+
+.header-inp {
+  width: 90%;
+}
+
+.header-inp input {
+  border: 1rpx #ddd solid;
+  border-radius: 6rpx;
+  padding: 10rpx 20rpx;
+  width: 92%;
+}
+
+.hader-pick {
+  width: 10%;
+  margin: auto;
+  text-align: right;
+
+  font-size: 28rpx;
+  color: #FFA459;
+}
+
+.hader-pick image {
+  height: 44rpx;
+  width: 44rpx;
+}
+
+
+.content-title {
+  font-size: 24rpx;
+}
+
+.content-con-item {
+  box-shadow: 0rpx 0rpx 20rpx 1rpx #ddd;
+  margin: 30rpx 0rpx;
+  border-radius: 5rpx;
+  padding: 30rpx;
+  font-size: 22rpx;
+  line-height: 40rpx;
+  color: #ccc;
+
+  position: relative;
+}
+
+.content-con-item span {
+  color: #333;
+}
+
+.item-title {
+  position: relative;
+}
+
+.item-con:last-child .item-con-right span {
+  color: #fd7d00;
+}
+
+.item-con {
+  display: flex;
+}
+
+
+.item-status1 {
+  position: absolute;
+  top: 0rpx;
+  right: 30rpx; 
+  color: #FFA459;
+}
+
+.item-status2 {
+  position: absolute;
+  top: 0rpx;
+  right: 30rpx; 
+  color:red;
+}
+
+.item-btn {
+  position: absolute;
+  right: 30rpx;
+  top: 100rpx;
+  margin: auto;
+  display: inline-block;
+
+  padding: 10rpx 40rpx;
+  border-radius: 45rpx;
+
+  border: 1rpx solid #FFA459;
+  color: #FFA459;
+
+}
+
+.item-con-left {
+  width: 60%;
+}
+
+.item-con-right {
+  width: 40%;
+}
+
+/* input框 placeholder样式 */
+
+.placeholderStyle {
+  color: #ddd;
+  font-size: 24rpx;
+}

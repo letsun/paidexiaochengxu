@@ -1,0 +1,176 @@
+<!-- pages/huozhu/hzlist/hzlist.wxml -->
+<view class="container">
+  <view class="header">
+    <view class="header-inp">
+
+      <block wx:if="{{tabindex==0}}">
+        <input placeholder-class="placeholderStyle" placeholder="输入销售分配单号搜索" bindinput="inputchang"></input>
+      </block>
+
+      <block wx:if="{{tabindex==1}}">
+        <input placeholder-class="placeholderStyle" placeholder="输入提货委托单号搜索" bindinput="inputchang"></input>
+      </block>
+
+      <block wx:if="{{tabindex==2}}">
+        <input placeholder-class="placeholderStyle" placeholder="输入提货委托单号搜索" bindinput="inputchang"></input>
+      </block>
+    </view>
+    <view class="hader-pick" bindtap="search">搜索</view>
+  </view>
+  <!-- 销售分配列表 -->
+  <view class="con" wx:if="{{tabindex==0}}" wx:for="{{findOutAllocationPageList}}" wx:key="">
+    <view class="con-btn1" bindtap="thfp" data-outallocationid="{{item.id}}">提货分配</view>
+    <view class="con-title">{{item.allocationNo}}</view>
+    <view class="con-item">
+      <view class="con-key1">提货时间:</view>
+      <view class="con-value">{{item.allocationTime}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key1">提货总数:</view>
+      <view class="con-value">{{item.totalWeight}}吨</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key1">提货糖厂:</view>
+      <view class="con-value">{{item.companyName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key1">合同编号:</view>
+      <view class="con-value">{{item.salesContractNo}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key1">货主名称:</view>
+      <view class="con-value">{{item.customerName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key1">产品名称:</view>
+      <view class="con-value">{{item.productName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key1">产品等级:</view>
+      <view class="con-value">{{item.productLevel}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key1">已分配数量:</view>
+      <view class="con-value">{{item.pickupWeight}}吨</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key1">储运科已批数量:</view>
+      <view class="con-value">{{item.auditPassWeight}}吨</view>
+    </view>
+  </view>
+  <!-- 提货委托书列表 -->
+  <view class="con" bindtap="wtDetail" data-mainid="{{item.mainId}}" wx:if="{{tabindex==1}}" wx:for="{{findPickupMainPageList}}" wx:key="">
+    <!-- <view class="con-btn1" bindtap="wtDetail" data-mainid="{{item.mainId}}">详情</view> -->
+    <!-- 状态展示 -->
+    <view class="con-btn3">{{item.status}}</view>
+
+    <view class="con-btn1" catchtap="wtEdit" data-mainid="{{item.mainId}}" wx:if="{{item.statusValue==0}}">编辑</view>
+    <view class="con-title">{{item.pickupNo}}</view>
+    <view class="con-item">
+      <view class="con-key2">提货时间:</view>
+      <view class="con-value">{{item.pickupTime}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">提货数量:</view>
+      <view class="con-value">{{item.totalQuantity}}吨</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">提货糖厂:</view>
+      <view class="con-value">{{item.companyName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">货主名称:</view>
+      <view class="con-value">{{item.customerName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">产品名称:</view>
+      <view class="con-value">{{item.productName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">产品等级:</view>
+      <view class="con-value">{{item.productLevel}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">销售分配单号:</view>
+      <view class="con-value">{{item.outAllocationNo}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">提货人名:</view>
+      <view class="con-value">{{item.name}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key2">提货人电话:</view>
+      <view class="con-value">{{item.phone}}</view>
+    </view>
+  </view>
+
+  <!-- 调度信息列表 -->
+  <view class="con" wx:if="{{tabindex==2}}" wx:for="{{findPickupItemPageList}}" wx:key="">
+
+    <!-- 状态展示 -->
+    <view class="con-btn3">{{item.dispatchStatus}}</view>
+
+
+    <block wx:if="{{item.tallyFlag==0}}">
+      <view class="con-btn1" bindtap="ddEditList" data-pickupItemId="{{item.pickupItemId}}">提货人变更记录</view>
+
+      <!-- <block wx:if="{{item.isChangeFlag==1}}"> -->
+        <view class="con-btn2" bindtap="ddInfoEdit" data-pickupItemId="{{item.pickupItemId}}" wx:if="{{item.dispatchStatusValue==1}}">     
+          申请修改         
+        </view>
+      <!-- </block> -->
+    </block>
+    <!-- <view class="con-btn2" bindtap="ddInfoEdit" data-pickupItemId="{{item.pickupItemId}}" >申请修改</view> -->
+
+    <view class="con-title">{{item.pickupNo}}</view>
+    <view class="con-item">
+
+      <view class="con-key3" wx:if="{{item.tallyFlag==1}}">理货姓名:</view>
+      <view class="con-key3" wx:else>司机姓名:</view>
+      <view class="con-value">{{item.name}} </view>
+    </view>
+    <view class="con-item" wx:if="{{item.tallyFlag==0}}">
+      <view class="con-key3">车牌号:</view>
+      <view class="con-value">{{item.plateNo}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key3">联系电话:</view>
+      <view class="con-value">{{item.phone}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key3">提货时间:</view>
+      <view class="con-value">{{item.loadCarTime}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key3">提货数量:</view>
+      <view class="con-value">{{item.weight}}吨</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key3">提货糖厂:</view>
+      <view class="con-value">{{item.companyName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key3">货主名称:</view>
+      <view class="con-value">{{item.customerName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key3">产品名称:</view>
+      <view class="con-value">{{item.productName}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key3">产品等级:</view>
+      <view class="con-value">{{item.productLevel}}</view>
+    </view>
+    <view class="con-item">
+      <view class="con-key3">出库库区:</view>
+      <view class="con-value">{{item.pickupAddress}}</view>
+    </view>
+  </view>
+
+  <view class="loadText" wx:if="{{loadText}}">没有更多数据了</view>
+  <view class="loadText" wx:else>上拉加载更多</view>
+  <view class="tfooter"></view>
+  <view class="footer">
+    <view class="footer-item {{index == tabindex?'ater':''}}" bindtap="footerbtn" data-index="{{index}}" wx:for="{{footer}}" wx:key="">{{item}}</view>
+  </view>
+</view>

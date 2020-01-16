@@ -10,8 +10,8 @@ Page({
    */
   data: {
 
-    //billId: "e15dacd05f954d42adae389627370304",
-    //billType: "2",
+    // billId: "e15dacd05f954d42adae389627370304",
+    // billType: "3",
     // billId: "fa2a19906205487698e74d584dba2243",
     // billType: "2",
     // type: '1'  //判断哪个页面跳转过来

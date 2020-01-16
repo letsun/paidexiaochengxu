@@ -178,8 +178,8 @@ Page({
         }, ()=> {
           qrcode: new QRCode('canvas', {
             text: adminUrl + '?queueCode=' + res.data.result.code,
-            width: 230,
-            height: 230,
+            width: 240,
+            height: 240,
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H,

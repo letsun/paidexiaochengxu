@@ -1,0 +1,270 @@
+/* pages/chuyunke/pdsqEdit/pdsqEdit.wxss */
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-size: 28rpx;
+}
+
+.header {
+  padding: 30rpx 30rpx 0 30rpx;
+  background: #F2F2F2;
+}
+
+.header text {
+  color: #999;
+}
+
+.header-item {
+  position: relative;
+
+  display: flex;
+  line-height: 60rpx;
+  font-size: 26rpx;
+}
+
+.header-right {
+  position: absolute;
+  right: 50rpx;
+} 
+
+
+
+.card {
+  padding: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-item {
+  width: 50%;
+}
+
+.card-phone image {
+  width: 280rpx;
+  height: 150rpx;
+
+}
+
+.con {
+
+}
+
+.con-title {
+  background: #F2F2F2; 
+  padding: 0rpx 30rpx;
+  line-height: 70rpx;
+  color: #999;
+}
+
+.con-item {
+  padding: 10rpx 20rpx;
+  display: flex;
+}
+
+
+
+.con-left {
+  width: 50%;
+  display: flex;
+}
+
+
+
+.con-right {
+  width: 50%;
+  display: flex;
+}
+
+.con-item:last-child .con-left{
+  display: block;
+}
+.con-item:last-child .con-right{
+  display: block;
+}
+
+.con-key {
+  color: #999;
+}
+
+.con-item image {
+  height: 180rpx;
+  width: 280rpx;
+}
+
+
+
+
+.upload {
+}
+
+.upload-title {
+  background: #F2F2F2; 
+  padding: 0rpx 30rpx;
+  line-height: 70rpx;
+  color: #999;
+}
+
+.upload-img {
+  font-size: 60rpx;
+  border: 1rpx #999 dotted;
+  height: 180rpx;
+  width: 280rpx;
+  text-align: center;
+  line-height: 180rpx;
+  color: #999;
+
+  margin: 20rpx;
+}
+
+
+.upload-img image {
+  height: 180rpx;
+  width: 280rpx;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0;
+  right: 0;
+  line-height: 90rpx;
+
+  display: flex;
+
+  box-shadow: 0rpx 1rpx 10rpx 5rpx #f4f4f4;
+}
+
+/* .footer-span {
+  position: absolute;
+  left: 50%;
+  top: 30rpx;
+  height:30rpx;
+  border: 1rpx solid #f4f4f4f4;
+} */
+
+.footer-item {
+  width: 50%;
+  text-align: center;
+  
+  
+}
+
+.footer-item:first-child {
+  background: #fff;
+  color: #333;
+}
+
+.footer-item:last-child {
+  background: #F59A23;
+  color: #f4f4f4;
+}
+
+.tfooter {
+  height: 90rpx;
+}
+
+.upload-img  {
+  position: relative;
+}
+
+.upload-img image {
+  width: 280rpx;
+  height: 180rpx;
+}
+
+.upload-mask {
+    position: absolute;
+    left: 0;
+    right: 0rpx;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .6);
+    color: #f4f4f4;
+
+    font-size: 28rpx;
+}
+
+.upload-previewImage {
+    position: absolute;
+    left: 60rpx;
+    top: 0rpx;
+}
+
+.upload-delect {
+    position: absolute;
+    right: 60rpx;
+    top: 0rpx;
+}
+
+
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .6);  
+}
+
+.mask-con {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  
+  border-radius: 10rpx;
+  overflow: hidden;
+  background: #fff;
+}
+
+.mask-title {
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx #ddd solid;
+}
+
+.mask-text {
+  padding:30rpx;
+  border-bottom: 1rpx #ddd solid;
+}
+
+.mask-text text {
+  font-size: 28rpx;
+  padding: 10rpx 30rpx;
+  display: block;
+}
+.mask-text textarea{
+  border: 1rpx #ddd solid;
+  width: 260px;
+
+  padding: 30rpx;
+}
+
+.mask-footer {
+  display: flex;
+  font-size: 28rpx;
+}
+
+.mask-footer-item {
+  width: 50%;
+}
+
+.item-btn {
+ 
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.mask-footer-item:first-child .item-btn {
+
+  color: #aaa;
+
+}
+
+.mask-footer-item:last-child .item-btn {
+
+  color: #f4f4f4f4;
+  background: #f68100;
+}

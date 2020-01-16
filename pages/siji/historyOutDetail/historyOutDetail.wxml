@@ -1,6 +1,27 @@
 <!-- pages/siji/historyOutDetail/historyOutDetail.wxml -->
 <!-- 12历史出库排队详情 -->
 <view class="container">
+
+  <!-- <view class="header">
+    <view class="header-item">
+      <text class="header-key">货主名称：</text>
+      <text class="header-value">广西来宾东糖凤凰糖厂</text>
+    </view>
+
+    <view class="header-item">
+      <text class="header-key">提货重量(吨)：</text>
+      <text class="header-value">32</text>
+    </view>
+
+    <view class="header-item1">
+      <view class="header-key">提货单据：</view>
+
+      <view class="header-value1"><image src="" /></view>
+        
+    </view>
+
+  </view> -->
+
   <view class="relation-form-wrap">
     <view class="relation-title" wx:if="{{billType==2}}">关联申请单</view>
     <view class="relation-title" wx:if="{{billType==3}}">关联运单</view>

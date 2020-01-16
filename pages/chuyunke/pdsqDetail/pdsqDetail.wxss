@@ -1,0 +1,144 @@
+/* pages/chuyunke/pdsqEdit/pdsqEdit.wxss */
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-size: 28rpx;
+}
+
+.header {
+  padding: 30rpx 30rpx 0 30rpx;
+  background: #F2F2F2;
+}
+
+.header text {
+  color: #999;
+}
+
+.header-item {
+  position: relative;
+
+  display: flex;
+  line-height: 60rpx;
+  font-size: 26rpx;
+}
+
+.header-right {
+  position: absolute;
+  right: 50rpx;
+} 
+
+
+
+.card {
+  padding: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-item {
+  width: 50%;
+}
+
+.card-phone image {
+  width: 280rpx;
+  height: 150rpx;
+
+
+}
+
+.con {
+
+}
+
+.con-title {
+  background: #F2F2F2; 
+  padding: 0rpx 30rpx;
+  line-height: 70rpx;
+  color: #999;
+}
+
+.con-item {
+  padding: 10rpx 30rpx;
+  display: flex;
+  font-size: 26rpx;
+}
+
+
+
+.con-left {
+  width: 50%;
+  display: flex;
+}
+
+
+
+.con-right {
+  width: 50%;
+  display: flex;
+}
+
+.con-item:last-child .con-left{
+  display: block;
+}
+.con-item:last-child .con-right{
+  display: block;
+}
+
+.con-key {
+  color: #999;
+}
+
+.con-item image {
+  height: 180rpx;
+  width: 280rpx;
+
+}
+
+
+
+
+.upload {
+}
+
+.upload-title {
+  background: #F2F2F2; 
+  padding: 0rpx 30rpx;
+  line-height: 70rpx;
+  color: #999;
+}
+
+.upload-img {
+  font-size: 60rpx;
+  border: 1rpx #999 dotted;
+  height: 180rpx;
+  width: 280rpx;
+  text-align: center;
+  line-height: 180rpx;
+  color: #999;
+
+  margin: 30rpx;
+}
+
+
+.upload-img image {
+  height: 180rpx;
+  width: 280rpx;
+}
+
+
+.audit-title {
+  background: #F2F2F2; 
+  padding: 0rpx 30rpx;
+  line-height: 70rpx;
+  color: #999;
+}
+
+.audit-title span {
+  color: red;
+}
+
+.audit-con {
+  padding: 30rpx;
+  color: #999;
+}

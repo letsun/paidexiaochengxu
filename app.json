@@ -1,23 +1,54 @@
 {
   "pages": [
+    "pages/index/index",
+
+    
     "pages/menwei/login/login",
-    "pages/siji/inputLicensePlate/inputLicensePlate",
     "pages/menwei/scancode/scancode",
     "pages/menwei/situation/situation",
     "pages/menwei/record/record",
+
+    "pages/siji/lineup/lineup",
+    "pages/siji/personal/personal",
+    "pages/siji/wtList/wtList", 
+
+    "pages/siji/inputLicensePlate/inputLicensePlate",
     "pages/siji/currentQueueDetailForm/currentQueueDetailForm",
     "pages/siji/historyEnterDetail/historyEnterDetail",
     "pages/siji/historyOutDetail/historyOutDetail",
     "pages/siji/queueRecord/queueRecord",
     "pages/siji/outhousing/outhousing",
-    "pages/index/index",
+
+
+    "pages/huozhu/home/home",
+    "pages/huozhu/personal/personal", 
+    "pages/huozhu/hzlist/hzlist",
+    "pages/huozhu/thfp/thfp",
+    "pages/huozhu/wtDetail/wtDetail",
+    "pages/huozhu/wtEdit/wtEdit",
+    "pages/huozhu/ddInfoEdit/ddInfoEdit",
+    "pages/huozhu/ddEditList/ddEditList",
+
+    "pages/chuyunke/home/home",
+    "pages/chuyunke/ddsqList/ddsqList",
+    "pages/chuyunke/situation/situation", 
+    "pages/chuyunke/startupList/startupList",
+    "pages/chuyunke/personList/personList",
+    "pages/chuyunke/pdsqList/pdsqList",
+    "pages/chuyunke/pdsqEdit/pdsqEdit",
+    "pages/chuyunke/pdsqDetail/pdsqDetail",
+    "pages/chuyunke/pdHistory/pdHistory",
+    "pages/chuyunke/ddInfoEdit/ddInfoEdit",
+
+   
+
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "派得科技"
+    "navigationBarTitleText": "派得科技"
   },
   "sitemapLocation": "sitemap.json"
 }

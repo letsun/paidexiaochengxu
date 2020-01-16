@@ -1,0 +1,82 @@
+<!-- pages/huozhu/thfp/thfp.wxml -->
+<view class="container">
+    <view class="inp">
+        <view class="inp-item">
+            <view class="item-key">销售分配单</view>
+            <view class="item-value">{{result.allocationNo}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货总数</view>
+            <view class="item-value">{{result.totalWeight}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">已分配数量</view>
+            <view class="item-value">{{result.pickupWeigth}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货委托单号</view>
+            <view class="item-value">{{result.pickupNo}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货时间</view>
+            <view class="item-value">{{result.pickupTime}}</view>
+        </view>
+
+        <view class="inp-item">
+            <view class="item-key">货主名称</view>
+            <view class="item-value">{{result.customerName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货糖厂</view>
+            <view class="item-value">{{result.companyName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">产品名称</view>
+            <view class="item-value">{{result.productName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">产品等级</view>
+            <view class="item-value">{{result.productLevel}}</view>
+        </view>
+    </view>
+    <view class="upload">
+        <view class="upload-book"bindtap="previewImage" >
+            <image src="{{result.images}}" />
+        </view>
+
+    </view>
+    <view class="con" wx:for="{{result.itemList}}" wx:key="">
+        <view class="con-item">
+            <view class="con-key" wx:if="{{item.tallyFlag==0}}">司机姓名:</view>
+            <view class="con-key" wx:else>理货姓名:</view>
+            <view class="con-value">
+                <input disabled="false" value="{{item.name}}" type="text" />
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">身份证号:</view>
+            <view class="con-value">
+                <input disabled="false" value="{{item.idCard}}" type="text" />
+            </view>
+        </view>
+        <view class="con-item"  wx:if="{{item.tallyFlag==0}}">
+            <view class="con-key">车牌号:</view>
+            <view class="con-value">
+                <input disabled="false" value="{{item.plateNo}}" type="text" />
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">联系电话:</view>
+            <view class="con-value">
+                <input disabled="false" value="{{item.phone}}" type="text" />
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">提货数量:</view>
+            <view class="con-value">
+                <input disabled="false" value="{{item.weight}}" type="text" />
+            </view>
+        </view>
+    </view>
+
+</view>

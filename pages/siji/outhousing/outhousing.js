@@ -9,13 +9,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isfalg:true
+    // codeType: '2',
+    // driverId: 'd00d42f1e7df41fbb37dcf956b103c01',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options)
     var that = this;
 
     that.setData({
@@ -40,8 +43,7 @@ Page({
       codeType: that.data.codeType, //that.data.code
       driverId: that.data.driverId,
 
-      // codeType: '2',
-      // driverId: 'd00d42f1e7df41fbb37dcf956b103c01',
+
     }, (res) => {
       if (res.data.code == 200) {
 
@@ -50,7 +52,8 @@ Page({
         //var billId = res.data.billId.substring(0,1);
         //console.log(billId)
         that.setData({
-          result: result
+          result: result,
+          parkId: result.parkId
         })
 
         // var showmodal = function(){
@@ -99,7 +102,18 @@ Page({
         //   showmodal('仓库已放行，请及时联系门卫放行');
         // }
       } else {
-        fun.showToast(res.data.message, 'none', (success) => {})
+
+        if (res.data.message !="暂无入库排队单") {
+          fun.showToast(res.data.message, 'none', (success) => { })
+        }
+        
+      }
+
+      if(res.data.code== 500) {
+
+        that.setData({
+          isfalg:false
+        })
       }
     })
   },
@@ -118,7 +132,7 @@ Page({
   getQueueList() {
     var that = this;
     wx.navigateTo({
-      url: '../../siji/queueRecord/queueRecord?codeType=' + that.data.codeType + '&driverId=' + that.data.driverId + '&parkId=' + that.data.result.parkId,
+      url: '../../siji/queueRecord/queueRecord?codeType=' + that.data.codeType + '&driverId=' + that.data.driverId + '&parkId=' + that.data.parkId,
 
     })
   },
@@ -132,6 +146,20 @@ Page({
     wx.navigateTo({
       url: '../../siji/historyOutDetail/historyOutDetail?billId=' + that.data.result.billId + '&billType=' + that.data.result.billType + '&type=' + 1,
     })
+  },
+
+  /**
+   *跳转到个人中心
+   */
+
+  personal() {
+    let that = this;
+    wx.navigateTo({
+      url: '../../siji/personal/personal?driverId=' + that.data.driverId
+    })
   }
+
+
+
 
 })

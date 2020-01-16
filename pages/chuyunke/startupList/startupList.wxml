@@ -1,0 +1,24 @@
+<!-- pages/chuyunke/startupList/startupList.wxml -->
+<view class="container">
+
+    <view class="con" wx:for="{{list}}" wx:key="xxx">
+        <view class="con-item" >
+            <view class="item-title">
+                <view class="title-left" wx:if="{{item.controlType==1}}">启动通知</view>
+                <view class="title-left" wx:else>暂停通知</view>
+                <view class="title-right">{{item.createDate}}</view>
+            </view>
+            <view class="item-text">
+                {{item.message}}
+            </view>
+        </view>
+    </view>
+
+    <view class="loadtext" wx:if="{{loadtext==true}}">
+      上拉加载更多
+    </view>
+
+    <view class="loadtext" wx:else>
+      没有更多数据了
+    </view>
+</view>

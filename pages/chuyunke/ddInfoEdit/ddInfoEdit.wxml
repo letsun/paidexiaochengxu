@@ -1,0 +1,104 @@
+<!-- pages/huozhu/thfp/thfp.wxml -->
+<view class="container">
+    <view class="inp">
+        <view class="inp-item">
+            <view class="item-key">提货委托单号</view>
+            <view class="item-value">{{result.orderNo}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货时间</view>
+            <view class="item-value">{{result.produceTime}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货糖厂</view>
+            <view class="item-value">{{result.companyName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货仓库</view>
+            <view class="item-value">{{result.warehouseName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">货主名称</view>
+            <view class="item-value">{{result.customerName}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">提货数量</view>
+            <view class="item-value">{{result.weight}}</view>
+        </view>
+        <view class="inp-item">
+            <view class="item-key">产品名称</view>
+            <view class="item-value">{{result.productName}}</view>
+        </view>
+    </view>
+    <view class="upload">
+        <view class="upload-book" bindtap="previewImage">
+            <image src="{{result.pickImage}}" />
+        </view>
+    </view>
+    <view class="con">
+        <view class="con-item">
+            <view class="con-titel">原司机信息</view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">司机姓名:</view>
+            <view class="con-value">
+                <input type="text" disabled="flase" value="{{result.pickupDriver.name}}"  />
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">身份证号:</view>
+            <view class="con-value">
+                <input type="text" disabled="flase" value="{{result.pickupDriver.idcard}}"/>
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">车牌号:</view>
+            <view class="con-value">
+                <input type="text" disabled="flase" value="{{result.pickupDriver.plateNumber}}"/>
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">联系电话:</view>
+            <view class="con-value">
+                <input type="text" disabled="flase" value="{{result.pickupDriver.mobile}}"/>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="con">
+        <view class="con-item">
+            <view class="con-titel">新司机信息</view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">司机姓名:</view>
+            <view class="con-value">
+                <input type="text" disabled="flase" value="{{result.newPickupDriver.name}}" />
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">身份证号:</view>
+            <view class="con-value">
+                <input type="text" disabled="flase" value="{{result.newPickupDriver.idcard}}" />
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">车牌号:</view>
+            <view class="con-value">
+                <input type="text" disabled="flase" value="{{result.newPickupDriver.plateNumber}}" />
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="con-key">联系电话:</view>
+            <view class="con-value">
+                <input type="text" disabled="flase" value="{{result.newPickupDriver.mobile}}" />
+            </view>
+        </view>
+
+    </view>
+
+    
+    <view class="footer">
+        <view class="footer-btn" bindtap="submitAdjustCheck">审核</view>
+    </view>
+</view>

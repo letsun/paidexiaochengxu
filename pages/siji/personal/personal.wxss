@@ -1,0 +1,63 @@
+/* pages/siji/personal/personal.wxss */
+page {
+    height: 100%;
+    width: 100%;
+}
+.container {
+    font-size: 28rpx;
+}
+
+.header-title {
+    line-height: 70rpx;
+    padding: 0rpx 20rpx;
+    background: #F2F2F2;
+    color: #999;
+}
+
+.header-item {
+    display: flex;
+    padding: 0rpx 20rpx;
+    line-height: 70rpx;
+    border-bottom: 1rpx solid #ddd;
+}
+.header-item:last-child {
+    border-bottom: 1rpx solid #fff;
+}
+
+.card-title {
+    line-height: 70rpx;
+    padding: 0rpx 20rpx;
+    background: #F2F2F2;
+    color: #999;
+}
+
+.card-photo {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20rpx;
+}
+
+.card-item {
+    width: 50%;
+
+}
+
+.card-item image {
+    height: 200rpx;
+    width: 330rpx;
+}
+
+.card-key {
+    color: #999;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 90rpx;
+    text-align: center;
+    color: #f4f4f4;
+    background: #F59A23;
+}

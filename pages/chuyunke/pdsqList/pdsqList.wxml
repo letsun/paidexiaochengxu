@@ -1,0 +1,62 @@
+<!-- pages/menwei/record/record.wxml -->
+<view class="container">
+  <!-- 头部搜索框 -->
+  <view class="header">
+    <view class="header-inp">
+      <input placeholder-class="placeholderStyle" placeholder="输入车牌号码/司机名称搜索" bindinput="inputchang"></input>
+    </view>
+    <view class="hader-pick" bindtap="search">搜索</view>
+  </view>
+  <!-- 内容 -->
+  <view class="content">
+    <!-- <view class="content-title">{{curQueueDate}}</view> -->
+    <view class="content-con" bindtap="pdsqDetail" data-status="{{item.status}}" data-queueApplyId="{{item.queueApplyId}}" wx:for="{{list}}" wx:key="">
+      <view class="content-con-item">
+        <view class="item-title">
+          <text>申请时间：</text>
+          <span>{{item.applyTime}}</span>
+          <view class="item-status1" wx:if="{{item.status==0}}">待审核</view>
+          <view class="item-status2" wx:if="{{item.status==1}}">已审核</view>
+          <!-- <view class="item-status1">待审核</view>
+          <view class="item-status2">已审核</view> -->
+        </view>
+        <view class="item-con">
+          <view class="item-con-left">
+            <text>司机名称：</text>
+            <span>{{item.pickupDriver.name}}</span>
+            <span wx:if="{{item.takeType==0}}">(提货人)</span>
+            <span wx:if="{{item.takeType==1}}">(理货员)</span>
+          </view>
+        </view>
+        <view class="item-con">
+          <view class="item-con-left">
+            <text>车牌号码：</text>
+            <span>{{item.pickupDriver.plateNumber}}</span>
+          </view>
+        </view>
+        <view class="item-con">
+          <view class="item-con-left">
+            <text>联系电话：</text>
+            <span>{{item.pickupDriver.mobile}}</span>
+          </view>
+        </view>
+        <view class="item-con">
+          <view class="item-con-left">
+            <text>身份证号：</text>
+            <span>{{item.pickupDriver.idcard}}</span>
+          </view>
+        </view>
+        <view class="item-con">
+          <view class="item-con-left">
+            <text>行驶证号：</text>
+            <span>{{item.pickupDriver.driverLicense}}</span>
+          </view>
+        </view>
+
+        <!-- <view class="item-btn" catchtap="pdsqEdit" data-queueApplyId="{{item.queueApplyId}}" wx:if="{{item.status==0}}" >审核</view> -->
+
+      </view>
+    </view>
+
+  </view>
+</view>

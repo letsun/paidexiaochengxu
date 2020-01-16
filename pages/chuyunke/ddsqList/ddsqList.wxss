@@ -1,0 +1,108 @@
+/* pages/chuyunke/ddsqList/ddsqList.wxss */
+page {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    font-size: 28rpx;
+}
+
+.header {
+    display: flex;
+    background: #F2F2F2;
+    line-height: 70rpx;
+    position: relative;
+    right: 0;
+    padding: 0rpx 20rpx;
+}
+
+.header-add {
+    position: absolute;
+    right: 30rpx;
+}
+
+.con {
+    padding: 30rpx;
+    line-height: 50rpx;
+    position: relative;
+    border-bottom: 1rpx solid #f4f4f4;
+}
+
+.con-item text{
+    color: #999;
+}
+
+.con-checkbox {
+  position: absolute;
+  right: 30rpx;
+  top: 150rpx;
+}
+
+.con-status {
+    position: absolute;
+    top: 30rpx;
+    right: 30rpx;
+}
+
+.status1 {
+    color: red;
+}
+.status2 {
+    color: #F59F2D;
+}
+
+.con-chang {
+    position: absolute;
+    bottom: 30rpx;
+    right: 130rpx;   
+}
+
+.con-delect {
+    position: absolute;
+    bottom: 30rpx;
+    right: 30rpx;
+    padding: 0rpx 10rpx;
+
+
+    border-radius: 10rpx;
+    border: 1rpx solid #F59F2D;
+    color: #F59F2D;
+}
+
+.tfooter {
+
+  height: 100rpx;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    padding: 20rpx;
+
+    background: #fff;
+    box-shadow: 0rpx 1rpx 10rpx 5rpx #f4f4f4;
+}
+
+.footer-left {
+    width: 45%;
+}
+
+.footer-middel {
+    width: 30%;
+    line-height: 70rpx;
+}
+
+.footer-right {
+    position: absolute;
+    right: 20rpx;
+    top: 25rpx;
+
+    padding:10rpx 30rpx;
+
+    color: #F59F2D;
+    border: 1rpx solid #F59F2D;
+    border-radius: 30rpx;
+}

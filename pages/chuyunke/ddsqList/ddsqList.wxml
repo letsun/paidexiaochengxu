@@ -1,0 +1,75 @@
+<!-- pages/chuyunke/ddsqList/ddsqList.wxml -->
+<view class="container">
+  <view class="header">
+    <!-- <picker class="" mode="date" range="[]" range-key="" value="{{curQueueDate}}" start="2015-09-01" end="2099-09-01" bindchange="bindDateChange" bindcancel="">
+      {{curQueueDate}}
+    </picker> -->
+
+    <view>{{curQueueDate}} </view>
+    <!-- <view class="header-add">新增</view> -->
+  </view>
+
+  <view class="con" wx:for="{{list}}" wx:key="">
+    <!-- <view class="con-item"><text>提货委托单号：</text>{{item.orderNo}}</view> -->
+    <view class="con-item">{{item.orderNo}}</view>
+    <view class="con-item">
+      <text>客户名称：</text>{{item.customerName}}</view>
+    <view class="con-item">
+      <text>提货人：</text>{{item.pickupTally.takeName}}</view>
+    <view class="con-item">
+      <text>身份证号：</text>{{item.pickupTally.idcard}}</view>
+    <view class="con-item">
+      <text>司机名称：</text>{{item.pickupTally.name}}</view>
+    <view class="con-item">
+      <text>车牌号码：</text>{{item.pickupTally.plateNumber}}</view>
+    <view class="con-item">
+      <text>提货重量(吨)：</text>{{item.takeWeight}}</view>
+    
+    <view class="con-checkbox" wx:if="{{item.status==0}}">
+        <switch class="" checked="{{item.isChecked}}" data-index="{{index}}" type="checkbox" bindchange="switchchang" data-pickupItemId="{{item.pickupItemId}}">
+        </switch>
+    </view>
+    <view class="con-status status1" wx:if="{{item.status==0}}">
+      未调度
+    </view>
+
+    <view class="con-status status2" wx:if="{{item.status==1}}">
+      已调度
+    </view>
+
+    <view class="con-status status2" wx:if="{{item.status==2}}">
+      已发布
+    </view>
+
+    <!-- <view class="con-chang">
+      修改
+    </view> -->
+
+    <view class="con-delect" data-index="{{index}}" data-pickupItemId="{{item.pickupItemId}}" bindtap="delect">
+      删除
+    </view>
+  </view>
+
+
+  <view class="tfooter"></view>
+  <view class="footer">
+    <view class="footer-left">
+      <view class="">产量(吨)：{{result.realProduceWeight}}</view>
+
+      <view class="">
+        已审核提货(吨)：{{result.waitOnWeight}}
+      </view>
+    </view>
+
+    <!-- <view class="footer-middel">
+      已选(吨)：52
+    </view> -->
+
+    <view class="footer-right" bindtap="audit">
+      <!-- <view class="">审核(0)</view> -->
+      <view class="">审核</view>
+    </view>
+
+  </view>
+
+</view>

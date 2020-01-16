@@ -1,0 +1,215 @@
+/* pages/siji/lineup/lineup.wxss */
+
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-size: 24rpx;
+}
+
+.con {
+  padding: 20rpx;
+  background: #f2f2f2;
+}
+
+.con-item {
+  display: flex;
+  position: relative;
+  line-height: 46rpx;
+  font-size: 24rpx;
+  padding: 10rpx 0rpx;
+}
+
+/* .con-item:last-child {
+  display: inline;
+} */
+
+.item-left {
+  display: flex;
+  margin-right: 10rpx;
+  color: #666;
+}
+
+.item-left input {
+  border: 1rpx solid #ccc;
+  background: #fff;
+  width: 170rpx;
+}
+
+.item-right {
+  display: flex;
+  color: #666;
+}
+
+.item-right input {
+  border: 1rpx solid #ccc;
+  background: #fff;
+  width: 170rpx;
+}
+
+.item-left1 {
+  width: 50%;
+}
+
+.item-right1 {
+  width: 50%;
+}
+
+.item-btn {
+  position: absolute;
+  right: 10rpx;
+  top: 5rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+  border: 1rpx #f60 solid;
+  color: #f60;
+  background: #fff;
+}
+
+.item-key {
+  color: #666;
+}
+
+.item-value input {
+  width: 460rpx;
+  padding: 0rpx 20rpx;
+  border: 1rpx solid #ccc;
+  background: #fff;
+}
+
+.item-value picker {
+  width: 460rpx;
+  padding: 0rpx 20rpx;
+  height: 48rpx;
+  border: 1rpx solid #ccc;
+  background: #fff;
+}
+
+.item-value1 {
+  position: relative;
+  width: 280rpx;
+  height: 150rpx;
+  line-height: 150rpx;
+  font-size: 60rpx;
+  text-align: center;
+  border: 1rpx dotted #999;
+  color: #999;
+  background: #fff;
+}
+
+.item-value1 image {
+    width: 280rpx;
+  height: 150rpx;
+}
+
+
+.upload {
+  padding: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.upload-item {
+  margin-top: 20rpx;
+  width: 50%;
+}
+
+.upload-item:last-child {
+  display: flex;
+}
+
+.upload-key {
+  color: #999;
+}
+
+.upload-value {
+  width: 280rpx;
+  height: 150rpx;
+  line-height: 150rpx;
+  font-size: 60rpx;
+  text-align: center;
+  border: 1rpx dotted #999;
+  color: #999;
+}
+
+.upload-img  {
+  position: relative;
+}
+.upload-img image {
+  width: 280rpx;
+  height: 150rpx;
+}
+
+.upload-imga image {
+  width: 280rpx;
+  height: 150rpx;
+}
+
+.upload-mask {
+    position: absolute;
+    left: 0;
+    right: 80rpx;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .6);
+    color: #f4f4f4;
+}
+
+.upload-mask1 {
+    position: absolute;
+    left: 0;
+    right: 0rpx;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .6);
+    color: #f4f4f4;
+    font-size: 26rpx;
+}
+
+.upload-previewImage {
+    position: absolute;
+    left: 60rpx;
+    top: 60rpx;
+}
+
+.upload-delect {
+    position: absolute;
+    right: 60rpx;
+    top: 60rpx;
+}
+
+
+.upload-previewImage1 {
+    position: absolute;
+    left: 60rpx;
+    top: 0rpx;
+}
+
+.upload-delect1 {
+    position: absolute;
+    right: 60rpx;
+    top: 0rpx;
+}
+
+.tfooter {
+  height: 90rpx;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 9;
+}
+
+.footer button {
+  background: #f59a23;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  color: #f4f4f4;
+  border-radius: 0rpx;
+  border: none;
+  outline: none;
+}

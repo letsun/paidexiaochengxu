@@ -1,0 +1,79 @@
+/* pages/chuyunke/personList/personList.wxss */
+.container {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    font-size: 28rpx;
+}
+
+.header {
+    padding: 10rpx;
+    display: flex;
+}
+
+.header-inp {
+    width: 660rpx;
+}
+
+.header-inp input {
+    border: 1rpx #ddd solid;
+    border-radius: 10rpx;
+    padding: 10rpx 0rpx;
+}
+
+.header-search {
+    width: 80rpx;
+    text-align: center;
+    color: #fd7d00;
+    line-height: 60rpx;
+}
+
+.con {
+    position: relative;
+
+    box-shadow: 0 1rpx 5rpx 5rpx #f4f4f4;
+    margin: 20rpx 0;
+    padding:10rpx 20rpx;
+    font-size: 24rpx;
+}
+
+.con-item {
+    padding: 10rpx 0;
+    display: flex;
+}
+
+.item-key {
+    color: #666;
+}
+
+.con-status {
+    position: absolute;
+    right: 30rpx;
+    top: 20rpx;
+}
+
+.status1 {
+    color: #fd7d00;
+}
+
+.status2 {
+    color: red;
+}
+
+.con-audit {
+
+    position: absolute;
+    bottom: 50rpx;
+    right: 30rpx;
+    padding: 5rpx 20rpx;
+    border-radius: 15rpx;
+
+    color: #fd7d00;
+    border: #fd7d00 1rpx solid;
+}
+
+.loadText {
+  text-align: center;
+  padding: 20rpx 0rpx;
+}

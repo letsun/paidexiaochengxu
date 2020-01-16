@@ -1,56 +1,129 @@
-<!--pages/siji/outhousing/outhousing.wxml-->
-
+<!-- pages/siji/outhousing/outhousing.wxml -->
 <view class="container" style="background-image: url(https://wechat-1254182596.cos.ap-guangzhou.myqcloud.com/pdxcx/1_1.png);background-repeat: no-repeat;background-size: cover;">
-  <view class="warehousing-wrap">
-    <view class="warehousing-title" wx:if="{{codeType==2}}" >出库排队单</view>
 
-    <view class="warehousing-title" wx:else="">入库排队单</view>
-    <view class="warehousing-content">
-      <view class="current-rank list-title">当前排队序号：</view>
-      <view class="current-no">{{result.queueSequence}}</view>
-      <view class="current-rank-park">
-        <text class="list-title">当前排队园区：</text>{{result.parkName}}</view>
-      <view class="join-time">
-        <text class="list-title">参与排队时间：</text>{{result.createDate}}</view>
-      <view class="estim-time">
-        <text class="list-title">预计等候时长：</text>{{result.exceptWaitTime}}分钟</view>
-      <view class="current-car">
-        <text class="list-title">当前等候车辆：</text>{{result.waitCarNum}}辆</view>
+  <view class="header">
+    <!-- <view class="header-left" bindtap="saoma">扫一扫</view> -->
+
+    <view class="header-right" bindtap="personal">
+      个人中心
     </view>
-
-    <view class="unload">
-      <view>
-        <text class="list-title"> <block  wx:if="{{codeType==2}}"> 前往装车地点：</block> <block wx:else> 前往卸车地点：</block> </text><text class="storehouse">{{result.workAddress}}</text>
-      </view>
-      <view>
-        <text class="list-title">当前车辆状态：</text><text class="storehouse">{{status}}</text>  
-      </view>
-     
-    </view>
-
-          <!-- 点击刷新车辆排队信息 -->
-      <view class="content-refresh" bindtap="refresh">
-
-        <view class="content-refresh-image">
-          <image src="https://wechat-1254182596.cos.ap-guangzhou.myqcloud.com/pdxcx/1_6.png"></image>
-        </view>
-
-        <view class="content-refresh-text">车辆排队信息
-          <text>刷新</text>
-        </view>
-      </view>
-      
   </view>
-  <view class="history-record" bindtap= "getQueueList" >历史排队记录</view>
+  <view class="warehousing-wrap" wx:if="{{isfalg}}">
+    <block wx:if="{{result.pickupInfo!=undefined && result.pickupInfo!=null}}">
+      <view class="warehousing-title">
+        提货预约
+        <view class="titel-refresh" bindtap="onShow">
+          <image src="https://wechat-1254182596.cos.ap-guangzhou.myqcloud.com/pdxcx/1_6.png"></image>
+          刷新
+        </view>
+      </view>
+    </block>
 
-  <block wx:if="{{result.billId != ''}}">
-  
-    <view class="history-record relation-list" wx:if="{{result.queueConnectForm != 0 }}"  bindtap="getBillDetail">
-      关联单据详情
-    </view>
+    <block wx:else>
+      <view class="warehousing-title" wx:if="{{codeType==2}}">
+        出库排队单
+        <view class="titel-refresh" bindtap="onShow">
+          <image src="https://wechat-1254182596.cos.ap-guangzhou.myqcloud.com/pdxcx/1_6.png"></image>
+          刷新
+        </view>
+      </view>
+      <view class="warehousing-title" wx:else>
+        入库排队单
+        <view class="titel-refresh" bindtap="onShow">
+          <image src="https://wechat-1254182596.cos.ap-guangzhou.myqcloud.com/pdxcx/1_6.png"></image>
+          刷新
+        </view>
+      </view>
+    </block>
+
+    <block wx:if="{{result.pickupInfo!=undefined && result.pickupInfo!=null}}">
+
+      <!-- <block wx:if="{{result.pickupInfo==''}}"> -->
+      <view class="warehousing-content">
+
+        <view class="current-rank-park">
+          <text class="list-title">货主名称：</text> {{result.pickupInfo.customerName}}
+        </view>
+        <view class="join-time">
+          <text class="list-title">提货时间：</text> {{result.pickupInfo.createTime}}
+        </view>
+        <view class="estim-time">
+          <text class="list-title">提货仓库：</text> {{result.pickupInfo.warehouse}}
+        </view>
+        <view class="current-car">
+          <text class="list-title">提货重量(吨)：</text> {{result.pickupInfo.pickupWeight}}
+        </view>
+
+        <view class="prompt">
+          请在提货时间前到场排队提货！
+        </view>
+      </view>
+      <view class="unload">
+        <!-- <view>
+          <text class="list-title">平均等待时长： </text>
+          <text class="storehouse">{{result.pickupInfo.customerName}}分钟</text>
+        </view> -->
+        <view>
+          <text class="list-title">历史提货单数：</text>
+          <text class="storehouse">{{result.pickupInfo.historyPickupCount}}</text>
+        </view>
+        <view>
+          <text class="list-title">历史提货总重量(吨)： </text>
+          <text class="storehouse">{{result.pickupInfo.historyPickupWeight}}</text>
+          <!-- <view class="unload-cancel">取消排队</view> -->
+        </view>
+
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="warehousing-content">
+        <view class="current-rank list-title">当前排队序号：</view>
+        <view class="current-no">{{result.queueSequence}}</view>
+        <view class="current-rank-park">
+          <text class="list-title">当前排队园区：</text> {{result.parkName}}
+        </view>
+        <view class="join-time">
+          <text class="list-title">参与排队时间：</text> {{result.createDate}}
+        </view>
+        <view class="estim-time">
+          <text class="list-title">预计等候时长：</text> {{result.exceptWaitTime}}分钟
+        </view>
+        <view class="current-car">
+          <text class="list-title">当前等候车辆：</text> {{result.waitCarNum}}辆
+        </view>
+      </view>
+      <view class="unload">
+        <view>
+          <text class="list-title">
+            <block wx:if="{{codeType==2}}">前往装车地点：</block>
+            <block wx:else>前往卸车地点：</block>
+          </text>
+          <text class="storehouse">{{result.workAddress}}</text>
+        </view>
+        <view>
+          <text class="list-title">当前车辆状态：</text>
+          <text class="storehouse">{{status}}</text>
+
+          <!-- <view class="unload-cancel">取消排队</view> -->
+        </view>
+
+
+      </view>
+    </block>
+  </view>
+
+  <block wx:if="{{result.pickupInfo==undefined && result.pickupInfo==null}}">
+    <view class="history-record" bindtap="getQueueList">历史排队记录</view>
+
+    <block wx:if="{{isfalg}}">
+      <block wx:if="{{result.billId != ''}}">
+        <view class="history-record relation-list" wx:if="{{result.queueConnectForm != 0 }}" bindtap="getBillDetail">
+          关联单据详情
+        </view>
+      </block>
+    </block>
   </block>
-
-
   <!-- <view class="cover" wx:if="{{isShow}}">
     <view class="tip-wrap">
       <view class="pass-tip">放行提示</view>

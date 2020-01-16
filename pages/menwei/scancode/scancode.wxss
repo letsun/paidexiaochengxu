@@ -52,13 +52,16 @@ page {
 .content-qrcode {
   height: 480rpx;
   width: 480rpx;
-  margin-top: 30rpx;
-  padding: 0rpx 75rpx 0rpx 75rpx;
+  padding-top: 30rpx;
+  margin: auto;
+  /* margin: auto; */
+  /* padding: 0rpx 75rpx 0rpx 75rpx; */
 }
 
 .content-qrcode canvas {
-  height: 480rpx!important;
-  width: 480rpx!important;
+  /* height: 480rpx!important;
+  width: 480rpx!important; */
+  /* margin: auto!important; */
 }
 
 .content-qrcode-img {
