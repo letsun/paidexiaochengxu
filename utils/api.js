@@ -3,6 +3,7 @@
 //var dev  = "http://yecl.lxcyhd.com";
 var dev = 'http://192.168.1.11:8899';          //本地*/
 var test = 'https://wms.ebiaoji.com';
+var pro = 'https://wms.pd-kj.com/';
 var ip = test;
 
 var api = {
